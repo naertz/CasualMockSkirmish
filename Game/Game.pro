@@ -20,3 +20,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     print.h \
     user_input.h
+
+DISTFILES += \
+    README.md
