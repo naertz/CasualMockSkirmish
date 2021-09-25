@@ -76,31 +76,6 @@ unsigned int string_to_unsigned_integer(std::string stringInput) {
     return unsignedIntegerFromString;
 }
 
-bool get_answer() {
-    std::string answer = "";
-
-    bool isAnswerYes;
-    bool isValidInput = false;
-
-    print("Enter yes or no (y/n): ", BLUE, false);
-
-    while (!isValidInput) {
-        std::getline(std::cin, answer);
-
-        if (answer == "y" || answer == "yes" || answer == "Y" || answer == "Yes") {
-            isValidInput = true;
-            isAnswerYes = true;
-        } else if (answer == "n" || answer == "no" || answer == "N" || answer == "No") {
-            isValidInput = true;
-            isAnswerYes = false;
-        } else {
-            print("Invalid input. Try again: ", RED, false);
-        }
-    }
-
-    return isAnswerYes;
-}
-
 unsigned int get_option(unsigned int maxDigit) {
     std::string prompt = "Enter a value between 1 and " + std::to_string(maxDigit) + ": ";
 
