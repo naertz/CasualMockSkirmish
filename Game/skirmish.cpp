@@ -1,7 +1,6 @@
 #include "warrior.h"
 #include "print.h"
 
-#include <iostream>
 #include <sstream>
 #include <vector>
 
