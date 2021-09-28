@@ -1,4 +1,5 @@
-//Dragon Class that inherhits form Warrior
+// Dragon Derived Class of Warrior
+
 #ifndef DRAGON_H
 #define DRAGON_H
 
@@ -6,9 +7,8 @@
 
 class Dragon : public Warrior{
     public:
-        Dragon(std::string dragon_name);
+        Dragon(std::string dragon_name); // Dragon Name Constructor Delegated To Base Main Constructor
 };
-
 
 #endif // DRAGON_H
 

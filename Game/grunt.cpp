@@ -5,4 +5,3 @@
 Grunt::Grunt(std::string grunt_name)
     : Warrior("Grunt", grunt_name, 5, 1) { }
 // =========================================
-

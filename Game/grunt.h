@@ -1,4 +1,4 @@
-// Grunt Warrior Derived Class
+// Grunt Derived Class Of Warrior
 
 #ifndef GRUNT_H
 #define GRUNT_H

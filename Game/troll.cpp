@@ -1,6 +1,7 @@
-#include "Troll.h"
+#include "troll.h"
 
-
-//Troll Constructor
+// Constructor(s) ===========================
+// Troll Name To Base Main
 Troll::Troll(std::string troll_name)
-    :Warrior("Troll", troll_name, 15, 5){}
+    : Warrior("Troll", troll_name, 15, 5) { }
+// ==========================================

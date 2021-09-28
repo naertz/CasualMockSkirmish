@@ -1,5 +1,7 @@
 #include "dragon.h"
 
-// Dragon Constructor
-Dragon::Dragon(std::string dragon_name):
-    Warrior("Dragon", dragon_name, 50, 20){}
+// Constructor(s) ==============================
+// Dragon Name To Base Main
+Dragon::Dragon(std::string dragon_name)
+    : Warrior("Dragon", dragon_name, 50, 20) { }
+// =============================================

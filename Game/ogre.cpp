@@ -1,5 +1,7 @@
-#include "Ogre.h"
+#include "ogre.h"
 
-// Ogre Constructor
-Ogre::Ogre(std::string ogre_name):
-    Warrior("Ogre", ogre_name, 20, 10){}
+// Constructor(s) ==========================
+// Ogre Name To Base Main
+Ogre::Ogre(std::string ogre_name)
+    : Warrior("Ogre", ogre_name, 20, 10) { }
+// =========================================
