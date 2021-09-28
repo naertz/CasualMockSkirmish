@@ -2,8 +2,11 @@
 #include "dwarf.h"
 #include "goblin.h"
 #include "grunt.h"
+#include "knight.h"
+#include "mammoth.h"
 #include "ogre.h"
 #include "troll.h"
+#include "wolf.h"
 
 #include "print.h"
 #include "skirmish.h"
@@ -35,11 +38,13 @@ int main() {
         print_scenario("4", "5 ogres", "9 trolls");
         print_scenario("5", "1 dragon", "13 dwarves");
         print_scenario("6", "1 dwarf + 1 grunt + 1 troll", "1 goblin + 1 ogre");
+        print_scenario("7", "5 knights", "3 wolves");
+        print_scenario("8", "1 mammoth", "2 dragons");
         print_quit();
         print();
 
         // Get and validate choice input.
-        choice = get_option(7);
+        choice = get_option(9);
 
         // Determine option selected.
         if (choice == 1) { // 1 grunt vs 1 grunt
@@ -161,12 +166,49 @@ int main() {
             print();
             start_skirmish(team_red, team_blue);
             print();
-        } else if (choice < 1 || choice >= 7) {
+        } else if (choice == 7) { // 5 knights vs 3 wolves
+            // Initialize 5 knights for team red.
+            Knight red_knight_peregrin = Knight("Peregrin");
+            Knight red_knight_elessar  = Knight("Elessar");
+            Knight red_knight_aragorn  = Knight("Aragorn");
+            Knight red_knight_hakon    = Knight("Hakon");
+            Knight red_knight_emund    = Knight("Emund");
+
+            // Initialize 3 wolves for team blue.
+            Wolf blue_wolf_harog  = Wolf("Harog");
+            Wolf blue_wolf_harach = Wolf("Harach");
+            Wolf blue_wolf_ulku   = Wolf("Ulku");
+
+            // Initialize each team.
+            std::vector<Warrior*> team_red  { &red_knight_peregrin, &red_knight_elessar, &red_knight_aragorn, &red_knight_hakon, &red_knight_emund };
+            std::vector<Warrior*> team_blue { &blue_wolf_harog, &blue_wolf_harach, &blue_wolf_ulku };
+
+            // Start skirmish simulation.
+            print();
+            start_skirmish(team_red, team_blue);
+            print();
+        } else if (choice == 8) { // 1 mammoth vs 2 dragons
+            // Initialize 1 mammoth for team red.
+            Mammoth red_mammoth_mumak = Mammoth("Mumak");
+
+            // Initialize 2 dragons for team blue.
+            Dragon blue_dragon_scatha = Dragon("Scatha");
+            Dragon blue_dragon_gostir = Dragon("Gostir");
+
+            // Initialize each team.
+            std::vector<Warrior*> team_red  { &red_mammoth_mumak };
+            std::vector<Warrior*> team_blue { &blue_dragon_gostir };
+
+            // Start skirmish simulation.
+            print();
+            start_skirmish(team_red, team_blue);
+            print();
+        } else if (choice < 1 || choice >= 9) {
             // End game.
             print();
             print("Bye.");
         }
-    } while (choice < 7);
+    } while (choice < 9);
 
     // Exit program successfully.
     return 0;
@@ -204,7 +246,7 @@ static void print_scenario(std::string optionNumber, std::string teamRed, std::s
  */
 
 static void print_quit() {
-    print("7", YELLOW, false);
+    print("9", YELLOW, false);
     print(" - ", DARK_WHITE, false);
     print("Quit", MAGENTA);
 }
