@@ -12,13 +12,16 @@ SOURCES += \
     dwarf.cpp \
     goblin.cpp \
     grunt.cpp \
+    knight.cpp \
+    mammoth.cpp \
     ogre.cpp \
     print.cpp \
     skirmish.cpp \
     start.cpp \
     troll.cpp \
     user_input.cpp \
-    warrior.cpp
+    warrior.cpp \
+    wolf.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -31,12 +34,15 @@ HEADERS += \
     entity.h \
     goblin.h \
     grunt.h \
+    knight.h \
+    mammoth.h \
     ogre.h \
     print.h \
     skirmish.h \
     troll.h \
     user_input.h \
-    warrior.h
+    warrior.h \
+    wolf.h
 
 DISTFILES += \
     README.md
