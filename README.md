@@ -8,8 +8,10 @@
 |-------|------------|
 |Noah Ertz|Backend development|
 |Owen Miner|Warrior/Creature classes|
-|LukasLawler|Warrior/Creature classes|
+|Lukas Lawler|Warrior/Creature classes|
 |Tanner Babcock|Documentation|
+|Gage Decker|Optimizations|
+|Jeffrey Garretto|TBD|
 
 Battle Simulator Project
 
