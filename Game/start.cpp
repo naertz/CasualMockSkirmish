@@ -122,39 +122,23 @@ int main() {
                 print();
                 break;
             } case 5: { // 1 dragon vs 13 dwarves
-                // Initialize dragon for team red.
-                Dragon red_dragon_smaug = Dragon("Smaug");
-
-                // Initialize 13 dwarves for team blue.
-                Dwarf blue_dwarf_dwalin = Dwarf("Dwalin");
-                Dwarf blue_dwarf_balin  = Dwarf("Balin");
-                Dwarf blue_dwarf_kili   = Dwarf("Kili");
-                Dwarf blue_dwarf_fili   = Dwarf("Fili");
-                Dwarf blue_dwarf_dori   = Dwarf("Dori");
-                Dwarf blue_dwarf_nori   = Dwarf("Nori");
-                Dwarf blue_dwarf_ori    = Dwarf("Ori");
-                Dwarf blue_dwarf_oin    = Dwarf("Oin");
-                Dwarf blue_dwarf_gloin  = Dwarf("Gloin");
-                Dwarf blue_dwarf_bifur  = Dwarf("Bifur");
-                Dwarf blue_dwarf_bofur  = Dwarf("Bofur");
-                Dwarf blue_dwarf_bombur = Dwarf("Bombur");
-                Dwarf blue_dwarf_thorin = Dwarf("Thorin");
-
                 // Initialize each team.
-                team_red  = { &red_dragon_smaug };
+                team_red  = { new Dragon("Smaug") };
+				// 13 dwarves for team blue.
                 team_blue = {
-                    &blue_dwarf_dwalin,
-                    &blue_dwarf_balin,
-                    &blue_dwarf_kili,
-                    &blue_dwarf_fili,
-                    &blue_dwarf_dori,
-                    &blue_dwarf_nori,
-                    &blue_dwarf_oin,
-                    &blue_dwarf_gloin,
-                    &blue_dwarf_bifur,
-                    &blue_dwarf_bofur,
-                    &blue_dwarf_bombur,
-                    &blue_dwarf_thorin
+                    new Dwarf("Dwalin"),
+                    new Dwarf("Balin"),
+                    new Dwarf("Kili"),
+                    new Dwarf("Fili"),
+                    new Dwarf("Dori"),
+                    new Dwarf("Nori"),
+                    new Dwarf("Ori"),
+                    new Dwarf("Oin"),
+                    new Dwarf("Gloin"),
+                    new Dwarf("Bifur"),
+                    new Dwarf("Bofur"),
+                    new Dwarf("Bombur"),
+                    new Dwarf("Thorin")
                 };
 
                 // Start skirmish simulation.
@@ -163,18 +147,14 @@ int main() {
                 print();
                 break;
             } case 6: { // 1 dwarf + 1 grunt + 1 troll vs 1 goblin + 1 ogre
-                // Initialize dwarf, grunt, and troll for team red.
-                Dwarf red_dwarf_thorin = Dwarf("Thorin");
-                Grunt red_grunt_bilbo  = Grunt("Bilbo");
-                Troll red_troll_bruz   = Troll("Bruz");
-
-                // Initialize goblin and ogre for team blue.
-                Goblin blue_goblin_grinnah = Goblin("Grinnah");
-                Ogre blue_ogre_ozoc        = Ogre("Ozoc");
-
-                // Initialize each team.
-                team_red  = { &red_dwarf_thorin, &red_grunt_bilbo, &red_troll_bruz };
-                team_blue = { &blue_goblin_grinnah, &blue_ogre_ozoc };
+                // Dwarf, grunt, and troll for team red.
+                team_red  = {
+                    new Dwarf("Thorin"),
+                    new Grunt("Bilbo"),
+                    new Troll("Bruz")
+                };
+                // Goblin and ogre for team blue.
+                team_blue = { new Goblin("Grinnah"), new Ogre("Ozoc") };
 
                 // Start skirmish simulation.
                 print();
@@ -183,29 +163,18 @@ int main() {
                 break;
             } case 7: { // 5 knights vs 3 wolves
                 // Initialize 5 knights for team red.
-                Knight red_knight_peregrin = Knight("Peregrin");
-                Knight red_knight_elessar  = Knight("Elessar");
-                Knight red_knight_aragorn  = Knight("Aragorn");
-                Knight red_knight_hakon    = Knight("Hakon");
-                Knight red_knight_emund    = Knight("Emund");
-
-                // Initialize 3 wolves for team blue.
-                Wolf blue_wolf_harog  = Wolf("Harog");
-                Wolf blue_wolf_harach = Wolf("Harach");
-                Wolf blue_wolf_ulku   = Wolf("Ulku");
-
-                // Initialize each team.
                 team_red  = {
-                    &red_knight_peregrin,
-                    &red_knight_elessar,
-                    &red_knight_aragorn,
-                    &red_knight_hakon,
-                    &red_knight_emund
+                    new Knight("Peregrin"),
+                    new Knight("Elessar"),
+                    new Knight("Aragorn"),
+                    new Knight("Hakon"),
+                    new Knight("Emund")
                 };
+                // 3 wolves for team blue.
                 team_blue = {
-                    &blue_wolf_harog,
-                    &blue_wolf_harach,
-                    &blue_wolf_ulku
+                    new Wolf("Harog"),
+                    new Wolf("Harach"),
+                    new Wolf("Ulku")
                 };
 
                 // Start skirmish simulation.
@@ -214,16 +183,9 @@ int main() {
                 print();
                 break;
             } case 8: { // 1 mammoth vs 2 dragons
-                // Initialize 1 mammoth for team red.
-                Mammoth red_mammoth_mumak = Mammoth("Mumak");
-
-                // Initialize 2 dragons for team blue.
-                Dragon blue_dragon_scatha = Dragon("Scatha");
-                Dragon blue_dragon_gostir = Dragon("Gostir");
-
                 // Initialize each team.
-                team_red  = { &red_mammoth_mumak };
-                team_blue = { &blue_dragon_gostir };
+                team_red  = { new Mammoth("Mumak") };
+                team_blue = { new Dragon("Scatha"), new Dragon("Gostir") };
 
                 // Start skirmish simulation.
                 print();
@@ -232,27 +194,17 @@ int main() {
                 break;
             } case 9: { // 4 sorcerers vs 2 knights + 1 wolf
                 // Initialize 4 sorcerers for team red.
-                Sorcerer red_sorcerer_merlin    = Sorcerer("Merlin");
-                Sorcerer red_sorcerer_nicolas   = Sorcerer("Nicolas");
-                Sorcerer red_sorcerer_durion    = Sorcerer("Durion");
-                Sorcerer red_sorcerer_cassandra = Sorcerer("Cassandra");
-
-                // Initialize 2 knights and 1 wolf for team blue.
-                Knight blue_knight_peregrin = Knight("Peregrin");
-                Knight blue_knight_elessar  = Knight("Elessar");
-                Wolf blue_wolf_harog        = Wolf("Harog");
-
-                // Initialize each team.
                 team_red  = {
-                    &red_sorcerer_merlin,
-                    &red_sorcerer_nicolas,
-                    &red_sorcerer_durion,
-                    &red_sorcerer_cassandra
+                    new Sorcerer("Merlin"),
+                    new Sorcerer("Nicolas"),
+                    new Sorcerer("Durion"),
+                    new Sorcerer("Cassandra")
                 };
+                // 2 knights and 1 wolf for team blue.
                 team_blue = {
-                    &blue_knight_peregrin,
-                    &blue_knight_elessar,
-                    &blue_wolf_harog
+                    new Knight("Peregrin"),
+                    new Knight("Elessar"),
+                    new Wolf("Harog")
                 };
 
                 // Start skirmish simulation.

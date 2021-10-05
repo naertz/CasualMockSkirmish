@@ -9,6 +9,16 @@ Warrior::Warrior(std::string warrior_type, std::string warrior_name, unsigned in
     , attack_damage(damage_amount) { }
 // ===========================================================================================================================
 
+// Destructor ================================================================================================================
+// Main
+Warrior::~Warrior(void) {
+    type = "";
+    name = "";
+    health = 0;
+    attack_damage = 0;
+}
+// ===========================================================================================================================
+
 // Mutator(s) ============================================
 // Health (Receive Damage)
 void Warrior::receive_damage(unsigned int damage_amount) {
@@ -22,22 +32,22 @@ void Warrior::receive_damage(unsigned int damage_amount) {
 
 // Accessor(s) ==================================
 // Warrior Type
-std::string Warrior::get_type() const {
+std::string Warrior::get_type(void) const {
     return type;
 }
 
 // Warrior Individual Name
-std::string Warrior::get_name() const {
+std::string Warrior::get_name(void) const {
     return name;
 }
 
 // Health Amount
-unsigned int Warrior::get_health() const {
+unsigned int Warrior::get_health(void) const {
     return health;
 }
 
 // Damage Amount Per Attack
-unsigned int Warrior::get_attack_damage() const {
+unsigned int Warrior::get_attack_damage(void) const {
     return attack_damage;
 }
 // ==============================================
@@ -56,7 +66,7 @@ bool Warrior::attack(Warrior* opponent) const {
 }
 
 // Alive Verification
-bool Warrior::is_alive() const {
+bool Warrior::is_alive(void) const {
     return health > 0;
 }
 // =============================================
