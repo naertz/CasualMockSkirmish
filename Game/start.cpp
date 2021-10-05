@@ -5,6 +5,7 @@
 #include "knight.h"
 #include "mammoth.h"
 #include "ogre.h"
+#include "sorcerer.h"
 #include "troll.h"
 #include "wolf.h"
 
@@ -40,11 +41,12 @@ int main() {
         print_scenario("6", "1 dwarf + 1 grunt + 1 troll", "1 goblin + 1 ogre");
         print_scenario("7", "5 knights", "3 wolves");
         print_scenario("8", "1 mammoth", "2 dragons");
+        print_scenario("9", "4 sorcerers", "2 knights + 1 wolf");
         print_quit();
         print();
 
         // Get and validate choice input.
-        choice = get_option(9);
+        choice = get_option(10);
 
         // Determine option selected.
         if (choice == 1) { // 1 grunt vs 1 grunt
@@ -203,12 +205,32 @@ int main() {
             print();
             start_skirmish(team_red, team_blue);
             print();
-        } else if (choice < 1 || choice >= 9) {
+        } else if (choice == 9) { // 4 sorcerers vs 2 knights + 1 wolf
+            // Initialize 4 sorcerers for team red.
+            Sorcerer red_sorcerer_merlin    = Sorcerer("Merlin");
+            Sorcerer red_sorcerer_nicolas   = Sorcerer("Nicolas");
+            Sorcerer red_sorcerer_durion    = Sorcerer("Durion");
+            Sorcerer red_sorcerer_cassandra = Sorcerer("Cassandra");
+
+            // Initialize 2 knights and 1 wolf for team blue.
+            Knight blue_knight_peregrin = Knight("Peregrin");
+            Knight blue_knight_elessar  = Knight("Elessar");
+            Wolf blue_wolf_harog        = Wolf("Harog");
+
+            // Initialize each team.
+            std::vector<Warrior*> team_red  { &red_sorcerer_merlin, &red_sorcerer_nicolas, &red_sorcerer_durion, &red_sorcerer_cassandra };
+            std::vector<Warrior*> team_blue { &blue_knight_peregrin, &blue_knight_elessar, &blue_wolf_harog };
+
+            // Start skirmish simulation.
+            print();
+            start_skirmish(team_red, team_blue);
+            print();
+        } else if (choice < 1 || choice >= 10) {
             // End game.
             print();
             print("Bye.");
         }
-    } while (choice < 9);
+    } while (choice < 10);
 
     // Exit program successfully.
     return 0;
@@ -246,7 +268,7 @@ static void print_scenario(std::string optionNumber, std::string teamRed, std::s
  */
 
 static void print_quit() {
-    print("9", YELLOW, false);
+    print("10", YELLOW, false);
     print(" - ", DARK_WHITE, false);
     print("Quit", MAGENTA);
 }
