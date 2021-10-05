@@ -17,6 +17,7 @@ SOURCES += \
     ogre.cpp \
     print.cpp \
     skirmish.cpp \
+    sorcerer.cpp \
     start.cpp \
     troll.cpp \
     user_input.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     ogre.h \
     print.h \
     skirmish.h \
+    sorcerer.h \
     troll.h \
     user_input.h \
     warrior.h \
