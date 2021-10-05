@@ -51,13 +51,9 @@ int main() {
         // Determine option selected.
         switch (choice = get_option(10)) {
             case 1: { // 1 grunt vs 1 grunt
-                // Initialize 1 grunt for each team.
-                Grunt red_grunt_billy  = Grunt("Billy");
-                Grunt blue_grunt_tasha = Grunt("Tasha");
-
                 // Initialize each team.
-                team_red  = { &red_grunt_billy };
-                team_blue = { &blue_grunt_tasha };
+                team_red  = { new Grunt("Billy") };
+                team_blue = { new Grunt("Tasha") };
 
                 // Start skirmish simulation.
                 print();
@@ -65,15 +61,15 @@ int main() {
                 print();
 				break;
             } case 2: { // 2 grunts vs 2 grunts
-                // Initialize two grunts for each team.
-                Grunt red_grunt_billy   = Grunt("Billy");
-                Grunt red_grunt_tasha   = Grunt("Tasha");
-                Grunt blue_grunt_sam    = Grunt("Sam");
-                Grunt blue_grunt_bessie = Grunt("Bessie");
-
-                // Initialize each team.
-                team_red  = { &red_grunt_billy, &red_grunt_tasha };
-                team_blue = { &blue_grunt_sam, &blue_grunt_bessie };
+                // Initialize two grunts for each team
+                team_red  = {
+                    new Grunt("Billy"),
+                    new Grunt("Tasha")
+                };
+                team_blue = {
+                    new Grunt("Sam"),
+                    new Grunt("Bessie")
+                };
 
                 // Start skirmish simulation.
                 print();
@@ -81,26 +77,16 @@ int main() {
                 print();
                 break;
             } case 3: { // 4 goblins vs 2 dwarves
-                // Initialize 4 goblins for team red.
-                Goblin red_goblin_azog      = Goblin("Azog");
-                Goblin red_goblin_bolg      = Goblin("Bolg");
-                Goblin red_goblin_golfimbul = Goblin("Golfimbul");
-                Goblin red_goblin_yazneg    = Goblin("Yazneg");
-
-                // Initialize 2 dwarves for team blue.
-                Dwarf blue_dwarf_bifur = Dwarf("Bifur");
-                Dwarf blue_dwarf_bofur = Dwarf("Bofur");
-
-                // Initialize each team.
+                // Initialize 4 goblins for team red
                 team_red = {
-                    &red_goblin_azog,
-                    &red_goblin_bolg,
-                    &red_goblin_golfimbul,
-                    &red_goblin_yazneg
+                    new Goblin("Azog"),
+                    new Goblin("Bolg"),
+                    new Goblin("Golfimbul"),
+                    new Goblin("Yazneg")
                 };
-                team_blue = {
-                    &blue_dwarf_bifur,
-                    &blue_dwarf_bofur
+                team_blue = { // And 2 dwarves for team blue
+                    new Dwarf("Bifur"),
+                    new Dwarf("Bofur")
                 };
 
                 // Start skirmish simulation.
@@ -110,41 +96,24 @@ int main() {
                 break;
             } case 4: { // 5 ogres vs 9 trolls
                 // Initialize 5 ogres for team red.
-                Ogre red_ogre_dozug    = Ogre("Dozug");
-                Ogre red_ogre_grizikur = Ogre("Grizikur");
-                Ogre red_ogre_iuzug    = Ogre("Iuzug");
-                Ogre red_ogre_glezakag = Ogre("Glezakag");
-                Ogre red_ogre_krezar   = Ogre("Krezar");
-
-                // Initialize 9 trolls for team blue.
-                Troll blue_troll_tom     = Troll("Tom");
-                Troll blue_troll_bert    = Troll("Bert");
-                Troll blue_troll_william = Troll("William");
-                Troll blue_troll_torog   = Troll("Torog");
-                Troll blue_troll_rogash  = Troll("Rogash");
-                Troll blue_troll_dingal  = Troll("Dingal");
-                Troll blue_troll_bill    = Troll("Bill");
-                Troll blue_troll_ronald  = Troll("Ronald");
-                Troll blue_troll_bolmug  = Troll("Bolmug");
-
-                // Initialize each team.
                 team_red  = {
-                    &red_ogre_dozug,
-                    &red_ogre_grizikur,
-                    &red_ogre_iuzug,
-                    &red_ogre_glezakag,
-                    &red_ogre_krezar
+                    new Ogre("Dozug"),
+                    new Ogre("Grizikur"),
+                    new Ogre("Iuzug"),
+                    new Ogre("Glezakag"),
+                    new Ogre("Krezar")
                 };
+                // Initialize 9 trolls for team blue.
                 team_blue = {
-                    &blue_troll_tom,
-                    &blue_troll_bert,
-                    &blue_troll_william,
-                    &blue_troll_torog,
-                    &blue_troll_rogash,
-                    &blue_troll_dingal,
-                    &blue_troll_bill,
-                    &blue_troll_ronald,
-                    &blue_troll_bolmug
+                    new Troll("Tom"),
+                    new Troll("Bert"),
+                    new Troll("William"),
+                    new Troll("Torog"),
+                    new Troll("Rogash"),
+                    new Troll("Dingal"),
+                    new Troll("Bill"),
+                    new Troll("Ronald"),
+                    new Troll("Bolmug")
                 };
 
                 // Start skirmish simulation.
