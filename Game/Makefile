@@ -3,7 +3,7 @@ OPTS = -Wall -O2
 all: CasualMockSkirmish
 
 CasualMockSkirmish: dragon.o dwarf.o goblin.o grunt.o knight.o mammoth.o ogre.o print.o skirmish.o sorcerer.o start.o troll.o user_input.o warrior.o wolf.o
-    g++ dragon.o dwarf.o goblin.o grunt.o knight.o mammoth.o ogre.o print.o skirmish.o sorcerer.o start.o troll.o user_input.o warrior.o wolf.o -o CasualMockSkirmish
+	g++ dragon.o dwarf.o goblin.o grunt.o knight.o mammoth.o ogre.o print.o skirmish.o sorcerer.o start.o troll.o user_input.o warrior.o wolf.o -o CasualMockSkirmish
 	strip CasualMockSkirmish
 
 dragon.o:
@@ -34,7 +34,7 @@ skirmish.o:
 	g++ ${OPTS} -c skirmish.cpp
 
 sorcerer.o:
-    g++ ${OPTS} -c sorcerer.cpp
+	g++ ${OPTS} -c sorcerer.cpp
 
 start.o:
 	g++ ${OPTS} -c start.cpp
@@ -52,5 +52,5 @@ wolf.o:
 	g++ ${OPTS} -c wolf.cpp
 
 clean:
-    rm CasualMockSkirmish dragon.o dwarf.o goblin.o grunt.o knight.o mammoth.o ogre.o print.o skirmish.o sorcerer.o start.o troll.o user_input.o warrior.o wolf.o
+	rm CasualMockSkirmish dragon.o dwarf.o goblin.o grunt.o knight.o mammoth.o ogre.o print.o skirmish.o sorcerer.o start.o troll.o user_input.o warrior.o wolf.o
 
