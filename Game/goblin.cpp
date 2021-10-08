@@ -3,5 +3,5 @@
 // Constructor(s) ============================
 // Goblin Name To Base Main
 Goblin::Goblin(std::string goblin_name)
-    : Warrior("Goblin", goblin_name, 5, 5) { }
+    : Warrior("Goblin", goblin_name, 150, 25) { }
 // ===========================================
