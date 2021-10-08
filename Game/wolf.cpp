@@ -3,5 +3,5 @@
 // Constructor(s) ==========================
 // Wolf Name To Base Main
 Wolf::Wolf(std::string wolf_name)
-    : Warrior("Wolf", wolf_name, 20, 10) { }
+    : Warrior("Wolf", wolf_name, 200, 15) { }
 // =========================================
