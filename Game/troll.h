@@ -4,10 +4,12 @@
 #define TROLL_H
 
 #include "warrior.h"
+#include <string>
 
 class Troll : public Warrior {
     public:
-       Troll(std::string troll_name); // Troll Name Constructor Delegated To Base Main Constructor
+        Troll(std::string troll_name);  // Troll Name Constructor Delegated To Base Main Constructor
+        void choose_attacks(void);      // Populate Attacks
 };
 
 #endif // TROLL_H

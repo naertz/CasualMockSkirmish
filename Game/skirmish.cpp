@@ -39,7 +39,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
     unsigned int turn = 0;
 
     // Simulation prints current turn until one team has no warriors left.
-    while(team_red.size() > 0 && team_blue.size() > 0) {
+    while (team_red.size() > 0 && team_blue.size() > 0) {
         switch (turn % 2) {
             case 0: { // Team Red attacks
                 // Print header.
@@ -50,23 +50,24 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                 unsigned int random_blue_warrior = rand() % team_blue.size();
 
                 std::stringstream attackEventOSS;
+                Attack blow;
+
+                // Get boolean to determine if the attack is hit or miss.
+                bool is_successful_attack = team_red[random_red_warrior]->attack(team_blue[random_blue_warrior], &blow);
 
                 // Append first part of event message before red warrior attacks to string stream.
                 attackEventOSS << "Red " << team_red[random_red_warrior]->get_type()
                                << " " << team_red[random_red_warrior]->get_name()
                                << " (HP: " << team_red[random_red_warrior]->get_health()
-                               << ") attacks Blue " << team_blue[random_blue_warrior]->get_type()
+                               << ") uses " << blow.name
+                               << " on Blue " << team_blue[random_blue_warrior]->get_type()
                                << " " << team_blue[random_blue_warrior]->get_name()
                                << " (HP: " << team_blue[random_blue_warrior]->get_health()
                                << ") " << std::flush;
 
-                // Get boolean to determine if the attack is hit or miss.
-                bool is_successful_attack = team_red[random_red_warrior]->attack(team_blue[random_blue_warrior]);
-
                 // Append attack result to string stream.
                 if (is_successful_attack) {
-                    attackEventOSS << "and lands a blow (-" << team_red[random_red_warrior]->get_attack_damage()
-                                   << "). " << std::flush;
+                    attackEventOSS << "and lands a blow (-" << blow.value << "). " << std::flush;
                 } else {
                     attackEventOSS << "and misses (-0). " << std::flush;
                 }
@@ -96,23 +97,24 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                 unsigned int random_red_warrior  = rand() % team_red.size();
 
                 std::stringstream attackEventOSS;
+                Attack blow;
+
+                // Get boolean to determine if the attack is hit or miss.
+                bool is_successful_attack = team_blue[random_blue_warrior]->attack(team_red[random_red_warrior], &blow);
 
                 // Append first part of event message before blue warrior attacks to string stream.
                 attackEventOSS << "Blue " << team_blue[random_blue_warrior]->get_type()
                                << " " << team_blue[random_blue_warrior]->get_name()
                                << " (HP: " << team_blue[random_blue_warrior]->get_health()
-                               << ") attacks Red " << team_red[random_red_warrior]->get_type()
+                               << ") uses " << blow.name
+                               <<  " on Red " << team_red[random_red_warrior]->get_type()
                                << " " << team_red[random_red_warrior]->get_name()
                                << " (HP: " << team_red[random_red_warrior]->get_health()
                                << ") " << std::flush;
 
-                // Get boolean to determine if the attack is hit or miss.
-                bool is_successful_attack = team_blue[random_blue_warrior]->attack(team_red[random_red_warrior]);
-
                 // Append attack result to string stream.
                 if (is_successful_attack) {
-                    attackEventOSS << "and lands a blow (-" << team_blue[random_blue_warrior]->get_attack_damage()
-                                   << "). " << std::flush;
+                    attackEventOSS << "and lands a blow (-" << blow.value << "). " << std::flush;
                 } else {
                     attackEventOSS << "and misses (-0). " << std::flush;
                 }
@@ -143,7 +145,9 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
     // Print winning team.
     if (team_red.size() > 0) {
         print("Team Red Wins!", RED);
+        delete(team_red[0]);
     } else {
         print("Team Blue Wins!", BLUE);
+        delete(team_blue[0]);
     }
 }
