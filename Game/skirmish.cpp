@@ -49,6 +49,10 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                 unsigned int random_red_warrior  = rand() % team_red.size();
                 unsigned int random_blue_warrior = rand() % team_blue.size();
 
+				// Get the defending warrior's health before the attack, because we are printing
+				// everything after
+				unsigned int old_health = team_blue[random_blue_warrior]->get_health();
+
                 std::stringstream attackEventOSS;
                 Attack blow;
 
@@ -62,7 +66,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                                << ") uses " << blow.name
                                << " on Blue " << team_blue[random_blue_warrior]->get_type()
                                << " " << team_blue[random_blue_warrior]->get_name()
-                               << " (HP: " << team_blue[random_blue_warrior]->get_health()
+                               << " (HP: " << old_health
                                << ") " << std::flush;
 
                 // Append attack result to string stream.
@@ -95,6 +99,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                 // Random attacking and defending warriors are selected at random.
                 unsigned int random_blue_warrior = rand() % team_blue.size();
                 unsigned int random_red_warrior  = rand() % team_red.size();
+				unsigned int old_health = team_red[random_red_warrior]->get_health();
 
                 std::stringstream attackEventOSS;
                 Attack blow;
@@ -109,7 +114,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                                << ") uses " << blow.name
                                <<  " on Red " << team_red[random_red_warrior]->get_type()
                                << " " << team_red[random_red_warrior]->get_name()
-                               << " (HP: " << team_red[random_red_warrior]->get_health()
+                               << " (HP: " << old_health
                                << ") " << std::flush;
 
                 // Append attack result to string stream.
@@ -149,7 +154,8 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
 			delete(team_red[1]);
 		}
         delete(team_red[0]);
-    } else {
+    }
+	else {
         print("Team Blue Wins!", BLUE);
 		if (team_blue.size() > 1) {
 			delete(team_blue[1]);
@@ -157,3 +163,4 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
         delete(team_blue[0]);
     }
 }
+
