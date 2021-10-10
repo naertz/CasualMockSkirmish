@@ -90,7 +90,7 @@ unsigned int get_option(unsigned int maxDigit) {
     while (!isValidInput) {
         std::getline(std::cin, stringInput);
 
-        if (stringInput.length() == 1) {
+        if (stringInput.length() <= 2) {
             answer = string_to_unsigned_integer(stringInput);
         }
 

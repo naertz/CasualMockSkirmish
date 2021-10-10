@@ -82,6 +82,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
 
                 // Remove warrior from defending team if they died.
                 if (!team_blue[random_blue_warrior]->is_alive()) {
+                    delete(team_blue[random_blue_warrior]);
                     team_blue.erase(team_blue.begin() + random_blue_warrior);
                 }
 
@@ -127,6 +128,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
 
                 // Remove warrior from defending team if they died.
                 if (!team_red[random_red_warrior]->is_alive()) {
+                    delete(team_red[random_red_warrior]);
                     team_red.erase(team_red.begin() + random_red_warrior);
                 }
 

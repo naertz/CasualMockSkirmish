@@ -8,12 +8,21 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dragon.cpp \
+    dwarf.cpp \
+    goblin.cpp \
     grunt.cpp \
+    knight.cpp \
+    mammoth.cpp \
+    ogre.cpp \
     print.cpp \
     skirmish.cpp \
+    sorcerer.cpp \
     start.cpp \
+    troll.cpp \
     user_input.cpp \
-    warrior.cpp
+    warrior.cpp \
+    wolf.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -21,12 +30,22 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    dragon.h \
+    dwarf.h \
     entity.h \
+    goblin.h \
     grunt.h \
+    knight.h \
+    mammoth.h \
+    ogre.h \
     print.h \
     skirmish.h \
+    sorcerer.h \
+    troll.h \
     user_input.h \
-    warrior.h
+    warrior.h \
+    wolf.h
 
 DISTFILES += \
+    Makefile \
     README.md
