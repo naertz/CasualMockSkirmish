@@ -145,9 +145,15 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
     // Print winning team.
     if (team_red.size() > 0) {
         print("Team Red Wins!", RED);
+		if (team_red.size() > 1) {
+			delete(team_red[1]);
+		}
         delete(team_red[0]);
     } else {
         print("Team Blue Wins!", BLUE);
+		if (team_blue.size() > 1) {
+			delete(team_blue[1]);
+		}
         delete(team_blue[0]);
     }
 }

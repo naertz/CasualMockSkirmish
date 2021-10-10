@@ -19,4 +19,9 @@ void Ogre::choose_attacks(void) {
         .value = 150,
         .maxtargets = 1
     });
+	attacks.push_back((Attack){
+		.name = "Foul Breath",
+		.value = 50,
+		.maxtargets = 3
+	});
 }
