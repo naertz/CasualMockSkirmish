@@ -16,4 +16,3 @@
 Please see our [Wiki](https://github.com/naertz/CasualMockSkirmish/wiki) for details on all of the game's Warriors and Attacks.
 
 Battle Simulator Project
-
