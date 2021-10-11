@@ -7,10 +7,19 @@
 #include <vector>
 #include <string>
 
+enum {
+    SLIMCHANCE = 25,
+    LOWCHANCE = 40,
+    EVENCHANCE = 50,
+    GOODCHANCE = 60,
+    HIGHCHANCE = 75
+};
+
 typedef struct {
     std::string name;          // Name of the attack
     unsigned int value;        // Attack damage dealt to opponent
     unsigned int maxtargets;   // Maximum number of targets
+    unsigned int probability;  // Chance out of 100 that attack will succeed
 } Attack;
 
 class Warrior : private Entity {

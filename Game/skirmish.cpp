@@ -1,6 +1,19 @@
+/* 
+ * Casual Mock Skirmish ==========
+ * 
+ * A battle simulator by:
+ *   - Noah A. Ertz
+ *   - Tanner Babcock
+ *   - Owen Miner
+ *   - Lukas Lawler
+ *   - Gage Decker
+ *
+ * CIS164 ========================
+ * Advanced C++
+ * Copyright (c) 2021
+*/
 #include "warrior.h"
 #include "print.h"
-
 #include <sstream>
 #include <vector>
 
@@ -49,9 +62,8 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                 unsigned int random_red_warrior  = rand() % team_red.size();
                 unsigned int random_blue_warrior = rand() % team_blue.size();
 
-				// Get the defending warrior's health before the attack, because we are printing
-				// everything after
-				unsigned int old_health = team_blue[random_blue_warrior]->get_health();
+                // Get the defending warrior's health before the attack, because we are printing everything after
+                unsigned int old_health = team_blue[random_blue_warrior]->get_health();
 
                 std::stringstream attackEventOSS;
                 Attack blow;
@@ -99,7 +111,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                 // Random attacking and defending warriors are selected at random.
                 unsigned int random_blue_warrior = rand() % team_blue.size();
                 unsigned int random_red_warrior  = rand() % team_red.size();
-				unsigned int old_health = team_red[random_red_warrior]->get_health();
+                unsigned int old_health = team_red[random_red_warrior]->get_health();
 
                 std::stringstream attackEventOSS;
                 Attack blow;
@@ -163,4 +175,3 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
         delete(team_blue[0]);
     }
 }
-

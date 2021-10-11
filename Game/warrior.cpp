@@ -1,3 +1,17 @@
+/* 
+ * Casual Mock Skirmish ==========
+ * 
+ * A battle simulator by:
+ *   - Noah A. Ertz
+ *   - Tanner Babcock
+ *   - Owen Miner
+ *   - Lukas Lawler
+ *   - Gage Decker
+ *
+ * CIS164 ========================
+ * Advanced C++
+ * Copyright (c) 2021
+*/
 #include "warrior.h"
 
 // Constructor(s) ============================================================================================================
@@ -55,8 +69,10 @@ unsigned int Warrior::get_attack_damage(void) const {
 // Function(s) =================================
 // Attack Opponent
 bool Warrior::attack(Warrior *opponent, Attack *info) {
-    bool is_successful_attack = rand() % 2;
+    unsigned int attack_chance = rand() % 100;
+//    bool is_successful_attack = rand() % 2;
     unsigned int attack_choice = rand() % attacks.size();
+    bool is_successful_attack = (attack_chance <= attacks[attack_choice].probability);
 
     if (is_successful_attack) {
         opponent->receive_damage(attacks[attack_choice].value);
