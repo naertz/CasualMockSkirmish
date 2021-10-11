@@ -1,9 +1,8 @@
 // Goblin Derived Class Of Warrior
-
 #ifndef GOBLIN_H
 #define GOBLIN_H
 
-#include "warrior.h"
+#include "../warrior.h"
 
 class Goblin : public Warrior {
     public:

@@ -3,7 +3,7 @@
 #ifndef OGRE_H
 #define OGRE_H
 
-#include "warrior.h"
+#include "../warrior.h"
 
 class Ogre : public Warrior {
     public:

@@ -3,7 +3,7 @@
 #ifndef GRUNT_H
 #define GRUNT_H
 
-#include "warrior.h"
+#include "../warrior.h"
 
 class Grunt : public Warrior {
     public:

@@ -3,7 +3,7 @@
 #ifndef DWARF_H
 #define DWARF_H
 
-#include "warrior.h"
+#include "../warrior.h"
 
 class Dwarf : public Warrior {
     public:

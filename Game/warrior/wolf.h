@@ -3,7 +3,7 @@
 #ifndef WOLF_H
 #define WOLF_H
 
-#include "warrior.h"
+#include "../warrior.h"
 
 class Wolf : public Warrior {
     public:

@@ -3,7 +3,7 @@
 #ifndef TROLL_H
 #define TROLL_H
 
-#include "warrior.h"
+#include "../warrior.h"
 #include <string>
 
 class Troll : public Warrior {

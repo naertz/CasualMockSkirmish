@@ -3,7 +3,7 @@
 #ifndef MAMMOTH_H
 #define MAMMOTH_H
 
-#include "warrior.h"
+#include "../warrior.h"
 
 class Mammoth : public Warrior {
     public:

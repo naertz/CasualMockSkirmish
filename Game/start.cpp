@@ -1,18 +1,19 @@
-#include "dragon.h"
-#include "dwarf.h"
-#include "goblin.h"
-#include "grunt.h"
-#include "knight.h"
-#include "mammoth.h"
-#include "ogre.h"
-#include "sorcerer.h"
-#include "troll.h"
-#include "wolf.h"
+#include "warrior/dragon.h"
+#include "warrior/dwarf.h"
+#include "warrior/goblin.h"
+#include "warrior/grunt.h"
+#include "warrior/knight.h"
+#include "warrior/mammoth.h"
+#include "warrior/ogre.h"
+#include "warrior/sorcerer.h"
+#include "warrior/troll.h"
+#include "warrior/wolf.h"
 
 #include "print.h"
 #include "skirmish.h"
 #include "user_input.h"
 
+#include <string>
 #include <ctime>
 #include <vector>
 
