@@ -11,11 +11,13 @@ void Witch::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Hex",
         .value = 75,
-        .maxtargets = 3
+        .maxtargets = 3,
+        .probability = GOODCHANCE
     });
     attacks.push_back((Attack){
         .name = "Poison",
         .value = 60,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
 }

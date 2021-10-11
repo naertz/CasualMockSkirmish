@@ -12,11 +12,13 @@ void Knight::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Javelin Charge",
         .value = 35,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = GOODCHANCE
     });
     attacks.push_back((Attack){
         .name = "Arrow Strike",
-        .value = 40,
-        .maxtargets = 1
+        .value = 60,
+        .maxtargets = 1,
+        .probability = LOWCHANCE
     });
 }

@@ -12,11 +12,13 @@ void Grunt::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Pugilism",
         .value = 10,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = GOODCHANCE
     });
     attacks.push_back((Attack){
         .name = "Freeze",
         .value = 20,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
 }

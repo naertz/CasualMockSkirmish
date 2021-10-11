@@ -7,15 +7,18 @@ Basilisk::Basilisk(std::string basilisk_name): Warrior("Basilisk", basilisk_name
 }
 // =============================================
 
+// Populate Basilisk Attacks
 void Basilisk::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Poison Tail",
         .value = 250,
-        .maxtargets = 3
+        .maxtargets = 3,
+        .probability = EVENCHANCE
     });
     attacks.push_back((Attack){
         .name = "Death Glare",
         .value = 400,
-        .maxtargets = 2
+        .maxtargets = 2,
+        .probability = GOODCHANCE
     });
 }

@@ -12,11 +12,13 @@ void Troll::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Pickpocket",
         .value = 45,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
     attacks.push_back((Attack){
         .name = "Scratch",
         .value = 50,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
 }

@@ -12,11 +12,13 @@ void Dragon::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Fire Breath",
         .value = 300,
-        .maxtargets = 3
+        .maxtargets = 3,
+        .probability = HIGHCHANCE,
     });
     attacks.push_back((Attack){
         .name = "Talon Strike",
         .value = 250,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
 }

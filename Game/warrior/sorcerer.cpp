@@ -12,11 +12,13 @@ void Sorcerer::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Fire Ball",
         .value = 75,
-        .maxtargets = 2
+        .maxtargets = 2,
+        .probability = EVENCHANCE
     });
     attacks.push_back((Attack){
         .name = "Thunder Bolt",
         .value = 85,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = LOWCHANCE
     });
 }

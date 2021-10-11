@@ -12,11 +12,13 @@ void Dwarf::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Trip",
         .value = 50,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
     attacks.push_back((Attack){
         .name = "Curse",
         .value = 40,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = GOODCHANCE
     });
 }

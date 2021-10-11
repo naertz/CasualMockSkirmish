@@ -12,11 +12,13 @@ void Snowman::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Snowball",
         .value = 10,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = GOODCHANCE
     });
     attacks.push_back((Attack){
         .name = "Earthquake",
-        .value = 40,
-        .maxtargets = 3
+        .value = 80,
+        .maxtargets = 3,
+        .probability = SLIMCHANCE
     });
 }

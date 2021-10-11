@@ -1,6 +1,19 @@
+/* 
+ * Casual Mock Skirmish ==========
+ * 
+ * A battle simulator by:
+ *   - Noah A. Ertz
+ *   - Tanner Babcock
+ *   - Owen Miner
+ *   - Lukas Lawler
+ *   - Gage Decker
+ *
+ * CIS164 ========================
+ * Advanced C++
+ * Copyright (c) 2021
+*/
 #include "warrior.h"
 #include "print.h"
-
 #include <sstream>
 #include <vector>
 

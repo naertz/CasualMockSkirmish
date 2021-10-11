@@ -12,11 +12,13 @@ void Mammoth::choose_attacks(void) {
     attacks.push_back({
         .name = "Stomp",
         .value = 150,
-        .maxtargets = 2
+        .maxtargets = 2,
+        .probability = HIGHCHANCE
     });
     attacks.push_back({
         .name = "Tusk Charge",
         .value = 170,
-        .maxtargets = 3
+        .maxtargets = 3,
+        .probability = EVENCHANCE
     });
 }

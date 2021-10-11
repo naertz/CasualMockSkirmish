@@ -1,3 +1,17 @@
+/* 
+ * Casual Mock Skirmish ==========
+ * 
+ * A battle simulator by:
+ *   - Noah A. Ertz
+ *   - Tanner Babcock
+ *   - Owen Miner
+ *   - Lukas Lawler
+ *   - Gage Decker
+ *
+ * CIS164 ========================
+ * Advanced C++
+ * Copyright (c) 2021
+*/
 #include "warrior/dragon.h"
 #include "warrior/dwarf.h"
 #include "warrior/goblin.h"
@@ -8,11 +22,9 @@
 #include "warrior/sorcerer.h"
 #include "warrior/troll.h"
 #include "warrior/wolf.h"
-
 #include "print.h"
 #include "skirmish.h"
 #include "user_input.h"
-
 #include <string>
 #include <ctime>
 #include <vector>
@@ -21,7 +33,7 @@ static void print_title(void);
 static void print_scenario(std::string optionNumber, std::string teamRed, std::string teamBlue);
 static void print_quit(void);
 
-int main() {
+int main(void) {
     // Set new random seed for each compile time.
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -262,4 +274,3 @@ static void print_quit(void) {
     print(" - ", DARK_WHITE, false);
     print("Quit", MAGENTA);
 }
-

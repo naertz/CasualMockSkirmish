@@ -12,11 +12,13 @@ void Goblin::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Flare Burn",
         .value = 35,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
     attacks.push_back((Attack){
         .name = "Pitchfork Stab",
         .value = 40,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = GOODCHANCE
     });
 }

@@ -12,16 +12,19 @@ void Ogre::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Body Slam",
         .value = 200,
-        .maxtargets = 2
+        .maxtargets = 2,
+        .probability = GOODCHANCE
     });
     attacks.push_back((Attack){
         .name = "Club Smash",
         .value = 150,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
 	attacks.push_back((Attack){
 		.name = "Foul Breath",
 		.value = 50,
-		.maxtargets = 3
+		.maxtargets = 3,
+        .probability = LOWCHANCE
 	});
 }

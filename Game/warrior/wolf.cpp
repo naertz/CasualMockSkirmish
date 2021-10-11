@@ -12,11 +12,13 @@ void Wolf::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Bite",
         .value = 15,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = EVENCHANCE
     });
     attacks.push_back((Attack){
         .name = "Charge",
         .value = 20,
-        .maxtargets = 1
+        .maxtargets = 1,
+        .probability = GOODCHANCE
     });
 }
