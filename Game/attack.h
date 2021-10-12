@@ -16,7 +16,6 @@ class Attack {
         std::string get_name() const;                                                                         // Name Accessor
         unsigned int get_damage_amount() const;                                                               // Damage Amount Accessor
         bool execute(Warrior *opponent);                                                                      // Attack 1 Opponent
-        //bool execute(Warrior *first_opponent, Warrior *second_opponent);                                      // Attack 2 Opponents (Not Implemented Yet)
     private:
         std::string name;                                                                                     // Name
         unsigned int damage_amount;                                                                           // Damage Amount

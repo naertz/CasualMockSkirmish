@@ -64,7 +64,7 @@ unsigned int Warrior::get_health(void) const {
 }
 // ===========================================
 
-// Function(s) =================================================================================
+// Function(s) =================================================
 // Attack 1 Opponent
 bool Warrior::attack(Warrior *opponent, Attack &chosen_attack) {
     chosen_attack = attacks[rand() % attacks.size()];
@@ -72,17 +72,8 @@ bool Warrior::attack(Warrior *opponent, Attack &chosen_attack) {
     return chosen_attack.execute(opponent);
 }
 
-/*
-// Attack 2 Opponents (Not Implemented Yet)
-bool Warrior::attack(Warrior *first_opponent, Warrior* second_apponent, Attack &chosen_attack) {
-    chosen_attack = attacks[rand() % attacks.size()];
-
-    return chosen_attack.execute(first_opponent, second_apponent);
-}
-*/
-
 // Alive Verification
 bool Warrior::is_alive(void) const {
     return health > 0;
 }
-// =============================================================================================
+// =============================================================

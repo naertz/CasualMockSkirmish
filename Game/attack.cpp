@@ -28,7 +28,7 @@ unsigned int Attack::get_damage_amount() const {
 }
 // =============================================
 
-// Execute Attack ============================================================================
+// Execute Attack ===========================================
 // Attack 1 Opponent
 bool Attack::execute(Warrior *opponent) {
     unsigned int execution_accuracy = rand() % 101;
@@ -40,25 +40,4 @@ bool Attack::execute(Warrior *opponent) {
 
     return is_attack_successful;
 }
-
-/*
-// Attack 2 Opponents (Not Implemented Yet)
-bool Attack::execute(Warrior *first_opponent, Warrior *second_opponent) {
-    unsigned int first_execution_accuracy  = rand() % 101;
-    bool is_first_attack_successful  = first_execution_accuracy <= chance;
-
-    if (is_first_attack_successful) {
-        first_opponent->receive_damage(damage_amount);
-    }
-
-    unsigned int second_execution_accuracy = rand() % 101;
-    bool is_second_attack_successful = second_execution_accuracy <= chance && max_targets > 1;
-
-    if (is_second_attack_successful) {
-        second_opponent->receive_damage(damage_amount);
-    }
-
-    return is_first_attack_successful || is_second_attack_successful;
-}
-*/
-// ===========================================================================================
+// ==========================================================

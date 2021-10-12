@@ -29,7 +29,6 @@ class Warrior : private Entity {
         std::string get_name(void) const;                                                                                        // Warrior Individual Name Accessor
         unsigned int get_health(void) const;                                                                                     // Health Amount Accessor
         bool attack(Warrior *opponent, Attack &chosen_attack);                                                                   // Attack 1 Opponent
-        //bool attack(Warrior *first_opponent, Warrior *second_opponent, Attack &chosen_attack);                                   // Attack 2 Opponents (Not Implemented Yet)
         bool is_alive(void) const override;                                                                                      // Alive Verification
     protected:
         Warrior(std::string warrior_type, std::string warrior_name, unsigned int health_capacity, std::vector<Attack> attacks);  // Main Constructor
