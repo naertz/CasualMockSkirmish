@@ -1,13 +1,13 @@
 #include "basilisk.h"
 
-// Constructor(s) ==============================
+// Constructor(s) ========================================================================
 // Basilisk Name To Base Main
-Basilisk::Basilisk(std::string basilisk_name): Warrior("Basilisk", basilisk_name, 3500) {
+Basilisk::Basilisk(std::string basilisk_name) : Warrior("Basilisk", basilisk_name, 3500) {
     choose_attacks();
 }
-// =============================================
+// =======================================================================================
 
-// Populate Basilisk Attacks
+// Populate Attacks =================
 void Basilisk::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Poison Tail",
@@ -22,3 +22,4 @@ void Basilisk::choose_attacks(void) {
         .probability = GOODCHANCE
     });
 }
+// ==================================

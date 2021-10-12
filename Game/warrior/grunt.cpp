@@ -1,13 +1,13 @@
 #include "grunt.h"
 
-// Constructor(s) ==========================
+// Constructor(s) ========================================================
 // Grunt Name To Base Main
-Grunt::Grunt(std::string grunt_name): Warrior("Grunt", grunt_name, 100) {
+Grunt::Grunt(std::string grunt_name) : Warrior("Grunt", grunt_name, 100) {
     choose_attacks();
 }
-// =========================================
+// =======================================================================
 
-// Populate Grunt Attacks
+// Populate Attacks ==============
 void Grunt::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Pugilism",
@@ -22,3 +22,4 @@ void Grunt::choose_attacks(void) {
         .probability = EVENCHANCE
     });
 }
+// ===============================

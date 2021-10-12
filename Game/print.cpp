@@ -1,17 +1,21 @@
-/* 
- * Casual Mock Skirmish ==========
- * 
- * A battle simulator by:
- *   - Noah A. Ertz
- *   - Tanner Babcock
- *   - Owen Miner
- *   - Lukas Lawler
- *   - Gage Decker
- *
- * CIS164 ========================
- * Advanced C++
- * Copyright (c) 2021
-*/
+//==================================
+// Casual Mock Skirmish
+//----------------------------------
+// Class: CIS-164 Advanced C++
+//----------------------------------
+// Reckless Alliance (Contributors):
+//     - Noah Allan Ertz
+//     - Tanner Babcock
+//     - Owen Miner
+//     - Lukas Lawler
+//     - Gage Decker
+//     - Jeffrey Garretto
+//----------------------------------
+// License: AGPL-3.0
+// ---------------------------------
+// 2021
+//==================================
+
 #include "print.h"
 #include <iostream>
 #include <string>
@@ -21,7 +25,7 @@
 #endif // OS
 
 void print(std::string text, text_color textColor, bool newLine) {
-#if defined(WINDOWS)
+    #if defined(WINDOWS)
     // Print text with Windows console colors:
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -85,7 +89,7 @@ void print(std::string text, text_color textColor, bool newLine) {
     }
 
     SetConsoleTextAttribute(hConsole, DARK_WHITE);
-#elif defined(NIX) || defined(UNKNOWN)
+    #elif defined(NIX) || defined(UNKNOWN)
     // Print text with ANSI color codes:
 
     switch (textColor) {
@@ -148,5 +152,5 @@ void print(std::string text, text_color textColor, bool newLine) {
     }
 
     std::cout << text.c_str() << "\033[0;37m" << std::flush;
-#endif
+    #endif
 }

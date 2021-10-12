@@ -1,13 +1,13 @@
 #include "sorcerer.h"
 
-// Constructor(s) =================================
+// Constructor(s) =======================================================================
 // Sorcerer Name To Base Main
-Sorcerer::Sorcerer(std::string sorcerer_name): Warrior("Sorcerer", sorcerer_name, 100) {
+Sorcerer::Sorcerer(std::string sorcerer_name) : Warrior("Sorcerer", sorcerer_name, 100) {
     choose_attacks();
 }
-// ================================================
+// ======================================================================================
 
-// Populate Attacks
+// Populate Attacks =================
 void Sorcerer::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Fire Ball",
@@ -22,3 +22,4 @@ void Sorcerer::choose_attacks(void) {
         .probability = LOWCHANCE
     });
 }
+// ==================================

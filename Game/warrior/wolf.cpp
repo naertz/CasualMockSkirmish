@@ -1,13 +1,13 @@
 #include "wolf.h"
 
-// Constructor(s) ==========================
+// Constructor(s) ===================================================
 // Wolf Name To Base Main
-Wolf::Wolf(std::string wolf_name): Warrior("Wolf", wolf_name, 200) {
+Wolf::Wolf(std::string wolf_name) : Warrior("Wolf", wolf_name, 200) {
     choose_attacks();
 }
-// =========================================
+// ==================================================================
 
-// Populate Wolf Attacks
+// Populate Attacks =============
 void Wolf::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Bite",
@@ -22,3 +22,4 @@ void Wolf::choose_attacks(void) {
         .probability = GOODCHANCE
     });
 }
+// ==============================

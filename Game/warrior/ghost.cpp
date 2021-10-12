@@ -1,13 +1,13 @@
 #include "ghost.h"
 
-// Constructor(s) ==============================
+// Constructor(s) =========================================================
 // Ghost Name To Base Main
-Ghost::Ghost(std::string ghost_name): Warrior("Ghost", ghost_name, 1000) {
+Ghost::Ghost(std::string ghost_name) : Warrior("Ghost", ghost_name, 1000) {
     choose_attacks();
-} //hard to do damage to, but does little damage
-// =============================================
+} // Hard to do damage to but does little damage.
+// ========================================================================
 
-// Populate Ghost Attacks
+// Populate Attacks ==============
 void Ghost::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Spook!",
@@ -22,3 +22,4 @@ void Ghost::choose_attacks(void) {
         .probability = 100
     });
 }
+// ===============================

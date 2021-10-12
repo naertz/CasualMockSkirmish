@@ -1,13 +1,13 @@
 #include "dwarf.h"
 
-// Constructor(s) ===========================
+// Constructor(s) ========================================================
 // Dwarf Name To Base Main
-Dwarf::Dwarf(std::string dwarf_name): Warrior("Dwarf", dwarf_name, 300) {
+Dwarf::Dwarf(std::string dwarf_name) : Warrior("Dwarf", dwarf_name, 300) {
     choose_attacks();
 }
-// ==========================================
+// =======================================================================
 
-// Populate Dwarf Attacks
+// Populate Attacks ==============
 void Dwarf::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Trip",
@@ -22,3 +22,4 @@ void Dwarf::choose_attacks(void) {
         .probability = GOODCHANCE
     });
 }
+// ===============================

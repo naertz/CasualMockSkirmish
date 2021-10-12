@@ -1,13 +1,13 @@
 #include "mammoth.h"
 
-// Constructor(s) ================================
+// Constructor(s) ===================================================================
 // Mammoth Name To Base Main
-Mammoth::Mammoth(std::string mammoth_name): Warrior("Mammoth", mammoth_name, 1500) {
+Mammoth::Mammoth(std::string mammoth_name) : Warrior("Mammoth", mammoth_name, 1500) {
     choose_attacks();
 }
-// ===============================================
+// ==================================================================================
 
-// Populate Mammoth Attacks
+// Populate Attacks ================
 void Mammoth::choose_attacks(void) {
     attacks.push_back({
         .name = "Stomp",
@@ -22,3 +22,4 @@ void Mammoth::choose_attacks(void) {
         .probability = EVENCHANCE
     });
 }
+// =================================

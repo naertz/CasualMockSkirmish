@@ -1,13 +1,13 @@
 #include "goblin.h"
 
-// Constructor(s) ============================
+// Constructor(s) =============================================================
 // Goblin Name To Base Main
-Goblin::Goblin(std::string goblin_name): Warrior("Goblin", goblin_name, 150) {
+Goblin::Goblin(std::string goblin_name) : Warrior("Goblin", goblin_name, 150) {
     choose_attacks();
 }
-// ===========================================
+// ============================================================================
 
-// Populate Goblin Attacks
+// Populate Attacks ===============
 void Goblin::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Flare Burn",
@@ -22,3 +22,4 @@ void Goblin::choose_attacks(void) {
         .probability = GOODCHANCE
     });
 }
+// ================================

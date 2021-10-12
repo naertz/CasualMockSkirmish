@@ -1,19 +1,24 @@
-/* 
- * Casual Mock Skirmish ==========
- * 
- * A battle simulator by:
- *   - Noah A. Ertz
- *   - Tanner Babcock
- *   - Owen Miner
- *   - Lukas Lawler
- *   - Gage Decker
- *
- * CIS164 ========================
- * Advanced C++
- * Copyright (c) 2021
-*/
+//==================================
+// Casual Mock Skirmish
+//----------------------------------
+// Class: CIS-164 Advanced C++
+//----------------------------------
+// Reckless Alliance (Contributors):
+//     - Noah Allan Ertz
+//     - Tanner Babcock
+//     - Owen Miner
+//     - Lukas Lawler
+//     - Gage Decker
+//     - Jeffrey Garretto
+//----------------------------------
+// License: AGPL-3.0
+// ---------------------------------
+// 2021
+//==================================
+
 #include "warrior.h"
 #include "print.h"
+
 #include <sstream>
 #include <vector>
 
@@ -62,7 +67,7 @@ void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_b
                 unsigned int random_red_warrior  = rand() % team_red.size();
                 unsigned int random_blue_warrior = rand() % team_blue.size();
 
-                // Get the defending warrior's health before the attack, because we are printing everything after
+                // Get the defending warrior's health before the attack because we are printing everything after
                 unsigned int old_health = team_blue[random_blue_warrior]->get_health();
 
                 std::stringstream attackEventOSS;

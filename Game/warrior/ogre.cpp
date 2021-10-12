@@ -1,13 +1,13 @@
 #include "ogre.h"
 
-// Constructor(s) ==========================
+// Constructor(s) ====================================================
 // Ogre Name To Base Main
-Ogre::Ogre(std::string ogre_name): Warrior("Ogre", ogre_name, 1000) {
+Ogre::Ogre(std::string ogre_name) : Warrior("Ogre", ogre_name, 1000) {
     choose_attacks();
 }
-// =========================================
+// ===================================================================
 
-// Populate Ogre Attacks
+// Populate Attacks =============
 void Ogre::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Body Slam",
@@ -28,3 +28,4 @@ void Ogre::choose_attacks(void) {
         .probability = LOWCHANCE
 	});
 }
+// ==============================

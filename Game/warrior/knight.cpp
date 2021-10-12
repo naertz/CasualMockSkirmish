@@ -1,13 +1,12 @@
 #include "knight.h"
 
-// Constructor(s) =============================
+// Constructor(s) =============================================================
 // Knight Name To Base Main
-Knight::Knight(std::string knight_name): Warrior("Knight", knight_name, 600) {
+Knight::Knight(std::string knight_name) : Warrior("Knight", knight_name, 600) {
     choose_attacks();
 }
-// ============================================
-
-// Populate Knight Attacks
+// ============================================================================
+// Populate Attacks ===============
 void Knight::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Javelin Charge",
@@ -22,3 +21,4 @@ void Knight::choose_attacks(void) {
         .probability = LOWCHANCE
     });
 }
+// ================================

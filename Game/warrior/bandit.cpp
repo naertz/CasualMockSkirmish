@@ -1,13 +1,13 @@
 #include "bandit.h"
 
-// Constructor(s) ==============================
+// Constructor(s) ============================================================
 // Bandit Name To Base Main
-Bandit::Bandit(std::string bandit_name): Warrior("Bandit", bandit_name, 60) {
+Bandit::Bandit(std::string bandit_name) : Warrior("Bandit", bandit_name, 60) {
     choose_attacks();
 }
-// =============================================
+// ===========================================================================
 
-// Populate Bandit Attacks
+// Populate Attacks ===============
 void Bandit::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Pillage",
@@ -22,3 +22,4 @@ void Bandit::choose_attacks(void) {
         .probability = GOODCHANCE
     });
 }
+// ================================

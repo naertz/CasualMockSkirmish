@@ -7,8 +7,8 @@
 
 class Knight : public Warrior {
     public:
-        Knight(std::string knight_name); // Knight Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);     // Populate Knight Attacks
+        Knight(std::string knight_name);  // Knight Name Constructor Delegated To Base Main Constructor
+        void choose_attacks(void);        // Populate Knight Attacks
 };
 
 #endif // KNIGHT_H

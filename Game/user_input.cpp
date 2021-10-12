@@ -1,19 +1,24 @@
-/* 
- * Casual Mock Skirmish ==========
- * 
- * A battle simulator by:
- *   - Noah A. Ertz
- *   - Tanner Babcock
- *   - Owen Miner
- *   - Lukas Lawler
- *   - Gage Decker
- *
- * CIS164 ========================
- * Advanced C++
- * Copyright (c) 2021
-*/
+//==================================
+// Casual Mock Skirmish
+//----------------------------------
+// Class: CIS-164 Advanced C++
+//----------------------------------
+// Reckless Alliance (Contributors):
+//     - Noah Allan Ertz
+//     - Tanner Babcock
+//     - Owen Miner
+//     - Lukas Lawler
+//     - Gage Decker
+//     - Jeffrey Garretto
+//----------------------------------
+// License: AGPL-3.0
+// ---------------------------------
+// 2021
+//==================================
+
 #include "print.h"
 #include "user_input.h"
+
 #include <climits>
 #include <cstdlib>
 #include <errno.h>
@@ -88,6 +93,12 @@ unsigned int string_to_unsigned_integer(std::string stringInput) {
     // Returns parsed unsigned integer.
     return unsignedIntegerFromString;
 }
+
+/**
+ * @brief get_option prompts and gets validated input.
+ * @param maxDigit = number of options available
+ * @return = validated input
+ */
 
 unsigned int get_option(unsigned int maxDigit) {
     std::string prompt = "Enter a value between 1 and " + std::to_string(maxDigit) + ": ";

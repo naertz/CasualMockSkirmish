@@ -7,8 +7,8 @@
 
 class Grunt : public Warrior {
     public:
-        Grunt(std::string grunt_name); // Grunt Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);     // Populate Grunt Attacks
+        Grunt(std::string grunt_name);  // Grunt Name Constructor Delegated To Base Main Constructor
+        void choose_attacks(void);      // Populate Grunt Attacks
 };
 
 #endif // GRUNT_H

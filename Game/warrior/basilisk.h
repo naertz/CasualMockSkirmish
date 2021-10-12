@@ -7,8 +7,8 @@
 
 class Basilisk : public Warrior {
     public:
-        Basilisk(std::string basilisk_name); // Basilisk Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);           // Populate Basilisk Attacks
+        Basilisk(std::string basilisk_name);  // Basilisk Name Constructor Delegated To Base Main Constructor
+        void choose_attacks(void);            // Populate Basilisk Attacks
 };
 
 #endif // BASILISK_H

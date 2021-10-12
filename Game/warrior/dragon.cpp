@@ -1,13 +1,13 @@
 #include "dragon.h"
 
-// Constructor(s) ==============================
+// Constructor(s) ==============================================================
 // Dragon Name To Base Main
-Dragon::Dragon(std::string dragon_name): Warrior("Dragon", dragon_name, 4000) {
+Dragon::Dragon(std::string dragon_name) : Warrior("Dragon", dragon_name, 4000) {
     choose_attacks();
 }
-// =============================================
+// =============================================================================
 
-// Populate Dragon Attacks
+// Populate Attacks ===============
 void Dragon::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Fire Breath",
@@ -22,3 +22,4 @@ void Dragon::choose_attacks(void) {
         .probability = EVENCHANCE
     });
 }
+// ================================

@@ -1,17 +1,25 @@
-/* 
- * Casual Mock Skirmish ==========
- * 
- * A battle simulator by:
- *   - Noah A. Ertz
- *   - Tanner Babcock
- *   - Owen Miner
- *   - Lukas Lawler
- *   - Gage Decker
- *
- * CIS164 ========================
- * Advanced C++
- * Copyright (c) 2021
-*/
+//==================================
+// Casual Mock Skirmish
+//----------------------------------
+// Class: CIS-164 Advanced C++
+//----------------------------------
+// Reckless Alliance (Contributors):
+//     - Noah Allan Ertz
+//     - Tanner Babcock
+//     - Owen Miner
+//     - Lukas Lawler
+//     - Gage Decker
+//     - Jeffrey Garretto
+//----------------------------------
+// License: AGPL-3.0
+// ---------------------------------
+// 2021
+//==================================
+
+#include "print.h"
+#include "skirmish.h"
+#include "user_input.h"
+
 #include "warrior/dragon.h"
 #include "warrior/dwarf.h"
 #include "warrior/goblin.h"
@@ -22,9 +30,7 @@
 #include "warrior/sorcerer.h"
 #include "warrior/troll.h"
 #include "warrior/wolf.h"
-#include "print.h"
-#include "skirmish.h"
-#include "user_input.h"
+
 #include <string>
 #include <ctime>
 #include <vector>
@@ -58,15 +64,21 @@ int main(void) {
         print_quit();
         print();
 
-        std::vector<Warrior *> team_red;
-		std::vector<Warrior *> team_blue;
+        std::vector<Warrior*> team_red;
+        std::vector<Warrior*> team_blue;
 
         // Determine option selected.
         switch (choice = get_option(10)) {
             case 1: { // 1 grunt vs 1 grunt
-                // Initialize each team.
-                team_red  = { new Grunt("Billy") };
-                team_blue = { new Grunt("Tasha") };
+                // Initialize 1 grunt for team red.
+                team_red  = {
+                    new Grunt("Billy")
+                };
+
+                // Initialize 1 grunt for team blue.
+                team_blue = {
+                    new Grunt("Tasha")
+                };
 
                 // Start skirmish simulation.
                 print();
@@ -74,11 +86,13 @@ int main(void) {
                 print();
 				break;
             } case 2: { // 2 grunts vs 2 grunts
-                // Initialize two grunts for each team
+                // Initialize 2 grunts for team red.
                 team_red  = {
                     new Grunt("Billy"),
                     new Grunt("Tasha")
                 };
+
+                // Initialize 2 grunts for team blue.
                 team_blue = {
                     new Grunt("Sam"),
                     new Grunt("Bessie")
@@ -90,14 +104,16 @@ int main(void) {
                 print();
                 break;
             } case 3: { // 4 goblins vs 2 dwarves
-                // Initialize 4 goblins for team red
+                // Initialize 4 goblins for team red.
                 team_red = {
                     new Goblin("Azog"),
                     new Goblin("Bolg"),
                     new Goblin("Golfimbul"),
                     new Goblin("Yazneg")
                 };
-                team_blue = { // And 2 dwarves for team blue
+
+                // Initialize 2 dwarves for team blue.
+                team_blue = {
                     new Dwarf("Bifur"),
                     new Dwarf("Bofur")
                 };
@@ -116,6 +132,7 @@ int main(void) {
                     new Ogre("Glezakag"),
                     new Ogre("Krezar")
                 };
+
                 // Initialize 9 trolls for team blue.
                 team_blue = {
                     new Troll("Tom"),
@@ -135,9 +152,12 @@ int main(void) {
                 print();
                 break;
             } case 5: { // 1 dragon vs 13 dwarves
-                // Initialize each team.
-                team_red  = { new Dragon("Smaug") };
-				// 13 dwarves for team blue.
+                // Initialize 1 dragon for team red.
+                team_red  = {
+                    new Dragon("Smaug")
+                };
+
+                // Initialize 13 dwarves for team blue.
                 team_blue = {
                     new Dwarf("Dwalin"),
                     new Dwarf("Balin"),
@@ -160,13 +180,14 @@ int main(void) {
                 print();
                 break;
             } case 6: { // 1 dwarf + 1 grunt + 1 troll vs 1 goblin + 1 ogre
-                // Dwarf, grunt, and troll for team red.
+                // Initialize 1 dwarf, 1 grunt, and 1 troll for team red.
                 team_red  = {
                     new Dwarf("Thorin"),
                     new Grunt("Bilbo"),
                     new Troll("Bruz")
                 };
-                // Goblin and ogre for team blue.
+
+                // Initialize 1 goblin and 1 ogre for team blue.
                 team_blue = { new Goblin("Grinnah"), new Ogre("Ozoc") };
 
                 // Start skirmish simulation.
@@ -183,7 +204,8 @@ int main(void) {
                     new Knight("Hakon"),
                     new Knight("Emund")
                 };
-                // 3 wolves for team blue.
+
+                // Initialize 3 wolves for team blue.
                 team_blue = {
                     new Wolf("Harog"),
                     new Wolf("Harach"),
@@ -196,9 +218,16 @@ int main(void) {
                 print();
                 break;
             } case 8: { // 1 mammoth vs 2 dragons
-                // Initialize each team.
-                team_red  = { new Mammoth("Mumak") };
-                team_blue = { new Dragon("Scatha"), new Dragon("Gostir") };
+                // Initialize 1 mammoth for team red.
+                team_red  = {
+                    new Mammoth("Mumak")
+                };
+
+                // Initialize 2 dragons for team blue.
+                team_blue = {
+                    new Dragon("Scatha"),
+                    new Dragon("Gostir")
+                };
 
                 // Start skirmish simulation.
                 print();
@@ -213,7 +242,8 @@ int main(void) {
                     new Sorcerer("Durion"),
                     new Sorcerer("Cassandra")
                 };
-                // 2 knights and 1 wolf for team blue.
+
+                // Initialize 2 knights and 1 wolf for team blue.
                 team_blue = {
                     new Knight("Peregrin"),
                     new Knight("Elessar"),

@@ -1,35 +1,39 @@
-/* 
- * Casual Mock Skirmish ==========
- * 
- * A battle simulator by:
- *   - Noah A. Ertz
- *   - Tanner Babcock
- *   - Owen Miner
- *   - Lukas Lawler
- *   - Gage Decker
- *
- * CIS164 ========================
- * Advanced C++
- * Copyright (c) 2021
-*/
+//==================================
+// Casual Mock Skirmish
+//----------------------------------
+// Class: CIS-164 Advanced C++
+//----------------------------------
+// Reckless Alliance (Contributors):
+//     - Noah Allan Ertz
+//     - Tanner Babcock
+//     - Owen Miner
+//     - Lukas Lawler
+//     - Gage Decker
+//     - Jeffrey Garretto
+//----------------------------------
+// License: AGPL-3.0
+// ---------------------------------
+// 2021
+//==================================
+
 #include "warrior.h"
 
-// Constructor(s) ============================================================================================================
+// Constructor(s) ================================================================================
 // Main
 Warrior::Warrior(std::string warrior_type, std::string warrior_name, unsigned int health_capacity)
     : type(warrior_type)
     , name(warrior_name)
     , health(health_capacity) { }
-// ===========================================================================================================================
+// ===============================================================================================
 
-// Destructor ================================================================================================================
+// Destructor ===========
 // Main
 Warrior::~Warrior(void) {
     type = "";
     name = "";
     health = 0;
 }
-// ===========================================================================================================================
+// ======================
 
 // Mutator(s) ============================================
 // Health (Receive Damage)
@@ -42,7 +46,7 @@ void Warrior::receive_damage(unsigned int damage_amount) {
 }
 // =======================================================
 
-// Accessor(s) ==================================
+// Accessor(s) ===============================
 // Warrior Type
 std::string Warrior::get_type(void) const {
     return type;
@@ -57,20 +61,12 @@ std::string Warrior::get_name(void) const {
 unsigned int Warrior::get_health(void) const {
     return health;
 }
+// ===========================================
 
-// Damage Amount Per Attack
-/*
-unsigned int Warrior::get_attack_damage(void) const {
-    return attack_damage;
-}
-*/
-// ==============================================
-
-// Function(s) =================================
+// Function(s) =======================================================================
 // Attack Opponent
 bool Warrior::attack(Warrior *opponent, Attack *info) {
     unsigned int attack_chance = rand() % 100;
-//    bool is_successful_attack = rand() % 2;
     unsigned int attack_choice = rand() % attacks.size();
     bool is_successful_attack = (attack_chance <= attacks[attack_choice].probability);
 
@@ -103,4 +99,4 @@ void Warrior::choose_attacks(void) { }
 bool Warrior::is_alive(void) const {
     return health > 0;
 }
-// =============================================
+// ===================================================================================

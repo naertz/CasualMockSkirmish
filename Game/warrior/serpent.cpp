@@ -1,13 +1,13 @@
 #include "serpent.h"
 
-// Constructor(s) ==============================
+// Constructor(s) ===================================================================
 // Serpant Name To Base Main
-Serpent::Serpent(std::string serpent_name): Warrior("Serpent", serpent_name, 1200) {
+Serpent::Serpent(std::string serpent_name) : Warrior("Serpent", serpent_name, 1200) {
     choose_attacks();
 }
-// =============================================
+// ==================================================================================
 
-// Populate Serpent Attacks
+// Populate Attacks ================
 void Serpent::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Suffocate",
@@ -22,3 +22,4 @@ void Serpent::choose_attacks(void) {
         .probability = EVENCHANCE
     });
 }
+// =================================

@@ -1,4 +1,5 @@
 // Troll Derived Class Of Warrior
+
 #ifndef TROLL_H
 #define TROLL_H
 

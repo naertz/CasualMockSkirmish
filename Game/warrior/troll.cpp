@@ -1,13 +1,13 @@
 #include "troll.h"
 
-// Constructor(s) ===========================
+// Constructor(s) =======================================================
 // Troll Name To Base Main
 Troll::Troll(std::string troll_name): Warrior("Troll", troll_name, 400) {
     choose_attacks();
 }
-// ==========================================
+// ======================================================================
 
-// Populate Attacks
+// Populate Attacks ==============
 void Troll::choose_attacks(void) {
     attacks.push_back((Attack){
         .name = "Pickpocket",
@@ -22,3 +22,4 @@ void Troll::choose_attacks(void) {
         .probability = EVENCHANCE
     });
 }
+// ===============================
