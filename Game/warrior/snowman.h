@@ -8,7 +8,6 @@
 class Snowman : public Warrior {
     public:
         Snowman(std::string snowman_name);  // Snowman Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);          // Populate Snowman Attacks
 };
 
 #endif // SNOWMAN_H

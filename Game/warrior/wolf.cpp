@@ -1,25 +1,13 @@
 #include "wolf.h"
 
-// Constructor(s) ===================================================
-// Wolf Name To Base Main
-Wolf::Wolf(std::string wolf_name) : Warrior("Wolf", wolf_name, 200) {
-    choose_attacks();
-}
-// ==================================================================
+// Attacks =============================
+std::vector<Attack> wolf_attacks = {
+    Attack("Bite", 15, 1, EVEN_CHANCE),
+    Attack("Charge", 20, 1, GOOD_CHANCE)
+};
+// =====================================
 
-// Populate Attacks =============
-void Wolf::choose_attacks(void) {
-    attacks.push_back((Attack){
-        .name = "Bite",
-        .value = 15,
-        .maxtargets = 1,
-        .probability = EVENCHANCE
-    });
-    attacks.push_back((Attack){
-        .name = "Charge",
-        .value = 20,
-        .maxtargets = 1,
-        .probability = GOODCHANCE
-    });
-}
-// ==============================
+// Constructor(s) ===================================================================
+// Wolf Name To Base Main
+Wolf::Wolf(std::string wolf_name) : Warrior("Wolf", wolf_name, 200, wolf_attacks) { }
+// ==================================================================================

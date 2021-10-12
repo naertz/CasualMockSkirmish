@@ -1,25 +1,13 @@
 #include "bandit.h"
 
-// Constructor(s) ============================================================
-// Bandit Name To Base Main
-Bandit::Bandit(std::string bandit_name) : Warrior("Bandit", bandit_name, 60) {
-    choose_attacks();
-}
-// ===========================================================================
+// Attacks ===============================
+std::vector<Attack> bandit_attacks = {
+    Attack("Pillage", 30, 3, HIGH_CHANCE),
+    Attack("Stab", 20, 1, GOOD_CHANCE)
+};
+// =======================================
 
-// Populate Attacks ===============
-void Bandit::choose_attacks(void) {
-    attacks.push_back((Attack){
-        .name = "Pillage",
-        .value = 30,
-        .maxtargets = 3,
-        .probability = HIGHCHANCE
-    });
-    attacks.push_back((Attack){
-        .name = "Stab",
-        .value = 20,
-        .maxtargets = 1,
-        .probability = GOODCHANCE
-    });
-}
-// ================================
+// Constructor(s) ==============================================================================
+// Bandit Name To Base Main
+Bandit::Bandit(std::string bandit_name) : Warrior("Bandit", bandit_name, 60, bandit_attacks) { }
+// =============================================================================================

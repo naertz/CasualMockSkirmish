@@ -1,25 +1,13 @@
 #include "snowman.h"
 
-// Constructor(s) =================================================================
-// Snowman Name To Base Main
-Snowman::Snowman(std::string snowman_name) : Warrior("Snowman", snowman_name, 30) {
-    choose_attacks();
-}
-// ================================================================================
+// Attacks =================================
+std::vector<Attack> snowman_attacks = {
+    Attack("Snowball", 10, 1, GOOD_CHANCE),
+    Attack("Earthquake", 80, 3, SLIM_CHANCE)
+};
+// =========================================
 
-// Populate Attacks ================
-void Snowman::choose_attacks(void) {
-    attacks.push_back((Attack){
-        .name = "Snowball",
-        .value = 10,
-        .maxtargets = 1,
-        .probability = GOODCHANCE
-    });
-    attacks.push_back((Attack){
-        .name = "Earthquake",
-        .value = 80,
-        .maxtargets = 3,
-        .probability = SLIMCHANCE
-    });
-}
-// =================================
+// Constructor(s) ====================================================================================
+// Snowman Name To Base Main
+Snowman::Snowman(std::string snowman_name) : Warrior("Snowman", snowman_name, 30, snowman_attacks) { }
+// ===================================================================================================

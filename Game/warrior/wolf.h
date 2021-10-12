@@ -8,7 +8,6 @@
 class Wolf : public Warrior {
     public:
         Wolf(std::string wolf_name);  // Wolf Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);    // Populate Wolf Attacks
 };
 
 #endif // WOLF_H

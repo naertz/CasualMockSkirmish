@@ -1,25 +1,13 @@
 #include "goblin.h"
 
-// Constructor(s) =============================================================
-// Goblin Name To Base Main
-Goblin::Goblin(std::string goblin_name) : Warrior("Goblin", goblin_name, 150) {
-    choose_attacks();
-}
-// ============================================================================
+// Attacks =====================================
+std::vector<Attack> goblin_attacks = {
+    Attack("Flare Burn", 35, 1, EVEN_CHANCE),
+    Attack("Pitchfork Stab", 40, 1, GOOD_CHANCE)
+};
+// =============================================
 
-// Populate Attacks ===============
-void Goblin::choose_attacks(void) {
-    attacks.push_back((Attack){
-        .name = "Flare Burn",
-        .value = 35,
-        .maxtargets = 1,
-        .probability = EVENCHANCE
-    });
-    attacks.push_back((Attack){
-        .name = "Pitchfork Stab",
-        .value = 40,
-        .maxtargets = 1,
-        .probability = GOODCHANCE
-    });
-}
-// ================================
+// Constructor(s) ===============================================================================
+// Goblin Name To Base Main
+Goblin::Goblin(std::string goblin_name) : Warrior("Goblin", goblin_name, 150, goblin_attacks) { }
+// ==============================================================================================

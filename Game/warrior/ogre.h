@@ -8,7 +8,6 @@
 class Ogre : public Warrior {
     public:
         Ogre(std::string ogre_name);  // Ogre Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);    // Populate Ogre Attacks
 };
 
 #endif // OGRE_H

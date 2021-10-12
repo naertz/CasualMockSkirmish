@@ -1,25 +1,13 @@
 #include "witch.h"
 
-// Constructor(s) =======================================================
-// Witch Name To Base Main
-Witch::Witch(std::string witch_name) : Warrior("Witch", witch_name, 75) {
-    choose_attacks();
-}
-// ======================================================================
+// Attacks =============================
+std::vector<Attack> witch_attacks = {
+    Attack("Hex", 75, 3, GOOD_CHANCE),
+    Attack("Poison", 60, 1, EVEN_CHANCE)
+};
+// =====================================
 
-// Populate Attacks ==============
-void Witch::choose_attacks(void) {
-    attacks.push_back((Attack){
-        .name = "Hex",
-        .value = 75,
-        .maxtargets = 3,
-        .probability = GOODCHANCE
-    });
-    attacks.push_back((Attack){
-        .name = "Poison",
-        .value = 60,
-        .maxtargets = 1,
-        .probability = EVENCHANCE
-    });
-}
-// ===============================
+// Constructor(s) ========================================================================
+// Witch Name To Base Main
+Witch::Witch(std::string witch_name) : Warrior("Witch", witch_name, 75, witch_attacks) { }
+// =======================================================================================

@@ -8,7 +8,6 @@
 class Serpent : public Warrior {
     public:
         Serpent(std::string serpent_name);  // Serpent Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);          // Populate Serpent Attacks
 };
 
 #endif // SERPENT_H

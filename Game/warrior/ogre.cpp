@@ -1,31 +1,14 @@
 #include "ogre.h"
 
-// Constructor(s) ====================================================
-// Ogre Name To Base Main
-Ogre::Ogre(std::string ogre_name) : Warrior("Ogre", ogre_name, 1000) {
-    choose_attacks();
-}
-// ===================================================================
+// Attacks ===================================
+std::vector<Attack> ogre_attacks = {
+    Attack("Body Slam", 200, 2, GOOD_CHANCE),
+    Attack("Club Smash", 150, 1, EVEN_CHANCE),
+    Attack("Foul Breath", 50, 3, LOW_CHANCE)
+};
+// ===========================================
 
-// Populate Attacks =============
-void Ogre::choose_attacks(void) {
-    attacks.push_back((Attack){
-        .name = "Body Slam",
-        .value = 200,
-        .maxtargets = 2,
-        .probability = GOODCHANCE
-    });
-    attacks.push_back((Attack){
-        .name = "Club Smash",
-        .value = 150,
-        .maxtargets = 1,
-        .probability = EVENCHANCE
-    });
-	attacks.push_back((Attack){
-		.name = "Foul Breath",
-		.value = 50,
-		.maxtargets = 3,
-        .probability = LOWCHANCE
-	});
-}
-// ==============================
+// Constructor(s) ====================================================================
+// Ogre Name To Base Main
+Ogre::Ogre(std::string ogre_name) : Warrior("Ogre", ogre_name, 1000, ogre_attacks) { }
+// ===================================================================================

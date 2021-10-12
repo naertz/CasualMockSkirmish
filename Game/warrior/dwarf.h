@@ -8,7 +8,6 @@
 class Dwarf : public Warrior {
     public:
         Dwarf(std::string dwarf_name);  // Dwarf Name Constructor Delegated To Base Main Constructor
-        void choose_attacks(void);      // Populate Dwarf Attacks
 };
 
 #endif // DWARF_H

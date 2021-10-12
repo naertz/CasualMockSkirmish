@@ -1,25 +1,13 @@
 #include "mammoth.h"
 
-// Constructor(s) ===================================================================
-// Mammoth Name To Base Main
-Mammoth::Mammoth(std::string mammoth_name) : Warrior("Mammoth", mammoth_name, 1500) {
-    choose_attacks();
-}
-// ==================================================================================
+// Attacks ===================================
+std::vector<Attack> mammoth_attacks = {
+    Attack("Stomp", 150, 2, HIGH_CHANCE),
+    Attack("Tusk Charge", 170, 3, EVEN_CHANCE)
+};
+// ===========================================
 
-// Populate Attacks ================
-void Mammoth::choose_attacks(void) {
-    attacks.push_back({
-        .name = "Stomp",
-        .value = 150,
-        .maxtargets = 2,
-        .probability = HIGHCHANCE
-    });
-    attacks.push_back({
-        .name = "Tusk Charge",
-        .value = 170,
-        .maxtargets = 3,
-        .probability = EVENCHANCE
-    });
-}
-// =================================
+// Constructor(s) ======================================================================================
+// Mammoth Name To Base Main
+Mammoth::Mammoth(std::string mammoth_name) : Warrior("Mammoth", mammoth_name, 1500, mammoth_attacks) { }
+// =====================================================================================================

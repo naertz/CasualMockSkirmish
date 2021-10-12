@@ -18,13 +18,14 @@
 
 #include "warrior.h"
 
-// Constructor(s) ================================================================================
+// Constructor(s) =============================================================================================================
 // Main
-Warrior::Warrior(std::string warrior_type, std::string warrior_name, unsigned int health_capacity)
+Warrior::Warrior(std::string warrior_type, std::string warrior_name, unsigned int health_capacity, std::vector<Attack> attacks)
     : type(warrior_type)
     , name(warrior_name)
-    , health(health_capacity) { }
-// ===============================================================================================
+    , health(health_capacity)
+    , attacks(attacks) { }
+// ============================================================================================================================
 
 // Destructor ===========
 // Main
@@ -63,40 +64,25 @@ unsigned int Warrior::get_health(void) const {
 }
 // ===========================================
 
-// Function(s) =======================================================================
-// Attack Opponent
-bool Warrior::attack(Warrior *opponent, Attack *info) {
-    unsigned int attack_chance = rand() % 100;
-    unsigned int attack_choice = rand() % attacks.size();
-    bool is_successful_attack = (attack_chance <= attacks[attack_choice].probability);
+// Function(s) =================================================================================
+// Attack 1 Opponent
+bool Warrior::attack(Warrior *opponent, Attack &chosen_attack) {
+    chosen_attack = attacks[rand() % attacks.size()];
 
-    if (is_successful_attack) {
-        opponent->receive_damage(attacks[attack_choice].value);
-    }
-    *info = attacks[attack_choice];
-    return is_successful_attack;
+    return chosen_attack.execute(opponent);
 }
 
-// Attack Two Opponents
-bool Warrior::attack(Warrior *opponent, Warrior *otheropp, Attack *info) {
-    bool first = rand() % 2;
-    bool second = rand() % 2;
-    unsigned int attack_choice = rand() % attacks.size();
+/*
+// Attack 2 Opponents (Not Implemented Yet)
+bool Warrior::attack(Warrior *first_opponent, Warrior* second_apponent, Attack &chosen_attack) {
+    chosen_attack = attacks[rand() % attacks.size()];
 
-    if (first) {
-        opponent->receive_damage(attacks[attack_choice].value);
-    }
-    if ((attacks[attack_choice].maxtargets > 1) && (second)) {
-        otheropp->receive_damage(attacks[attack_choice].value);
-    }
-    *info = attacks[attack_choice];
-    return (first && second);
+    return chosen_attack.execute(first_opponent, second_apponent);
 }
-
-void Warrior::choose_attacks(void) { }
+*/
 
 // Alive Verification
 bool Warrior::is_alive(void) const {
     return health > 0;
 }
-// ===================================================================================
+// =============================================================================================
