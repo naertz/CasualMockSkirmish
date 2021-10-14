@@ -9,6 +9,15 @@ class Warrior;  // Forward Warrior Declaration
 
 #include <string>
 
+enum chance_amounts {
+    SLIM_CHANCE    = 25,
+    LOW_CHANCE     = 40,
+    EVEN_CHANCE    = 50,
+    GOOD_CHANCE    = 60,
+    HIGH_CHANCE    = 75,
+    PERFECT_CHANCE = 100
+};
+
 class Attack {
     public:
         Attack();                                                                                             // Default Constructor

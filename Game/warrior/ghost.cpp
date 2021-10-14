@@ -2,8 +2,9 @@
 
 // Attacks ================================
 std::vector<Attack> ghost_attacks = {
-    Attack("Spook!", 2, 2, PERFECT_CHANCE),
-    Attack("Haunt", 3, 1, PERFECT_CHANCE)
+    Attack("Spook!", 30, 2, PERFECT_CHANCE),
+    Attack("Haunt", 40, 1, PERFECT_CHANCE),
+    Attack("Ectoplasm", 20, 3, EVEN_CHANCE)
 };
 // ========================================
 

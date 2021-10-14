@@ -2,8 +2,9 @@
 
 // Attacks ======================================
 std::vector<Attack> knight_attacks = {
-    Attack("Javelin Charge", 35, 1, GOOD_CHANCE),
-    Attack("Arrow Strike", 60, 1, LOW_CHANCE)
+    Attack("Javelin Charge", 45, 1, GOOD_CHANCE),
+    Attack("Arrow Strike", 60, 1, LOW_CHANCE),
+    Attack("Trample", 80, 1, EVEN_CHANCE)
 };
 // ==============================================
 

@@ -3,7 +3,8 @@
 // Attacks ===============================
 std::vector<Attack> bandit_attacks = {
     Attack("Pillage", 30, 3, HIGH_CHANCE),
-    Attack("Stab", 20, 1, GOOD_CHANCE)
+    Attack("Stab", 40, 1, GOOD_CHANCE),
+    Attack("Pocket Sand", 30, 1, EVEN_CHANCE)
 };
 // =======================================
 

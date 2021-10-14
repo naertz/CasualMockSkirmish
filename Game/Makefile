@@ -73,4 +73,4 @@ warrior/wolf.o:
 	g++ ${OPTS} -c warrior/wolf.cpp -o $@
 
 clean:
-    rm CasualMockSkirmish attack.o print.o skirmish.o start.o user_input.o warrior.o warrior/bandit.o warrior/basilisk.o warrior/dragon.o warrior/dwarf.o warrior/ghost.o warrior/goblin.o warrior/grunt.o warrior/knight.o warrior/mammoth.o warrior/ogre.o warrior/serpent.o warrior/snowman.o warrior/sorcerer.o warrior/troll.o warrior/witch.o warrior/wolf.o
+	rm CasualMockSkirmish attack.o print.o skirmish.o start.o user_input.o warrior.o warrior/bandit.o warrior/basilisk.o warrior/dragon.o warrior/dwarf.o warrior/ghost.o warrior/goblin.o warrior/grunt.o warrior/knight.o warrior/mammoth.o warrior/ogre.o warrior/serpent.o warrior/snowman.o warrior/sorcerer.o warrior/troll.o warrior/witch.o warrior/wolf.o

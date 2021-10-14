@@ -3,7 +3,8 @@
 // Attacks ============================
 std::vector<Attack> dwarf_attacks = {
     Attack("Trip", 50, 1, EVEN_CHANCE),
-    Attack("Curse", 40, 1, GOOD_CHANCE)
+    Attack("Curse", 40, 1, GOOD_CHANCE),
+    Attack("Pugilism", 20, 1, HIGH_CHANCE)
 };
 // ====================================
 

@@ -3,7 +3,8 @@
 // Attacks ==================================
 std::vector<Attack> sorcerer_attacks = {
     Attack("Fire Ball", 75, 2, EVEN_CHANCE),
-    Attack("Thunder Bolt", 85, 1, LOW_CHANCE)
+    Attack("Thunder Bolt", 85, 1, LOW_CHANCE),
+    Attack("Reanimate Dead", 60, 1, EVEN_CHANCE)
 };
 // ==========================================
 

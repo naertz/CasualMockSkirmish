@@ -3,7 +3,8 @@
 // Attacks ================================
 std::vector<Attack> grunt_attacks = {
     Attack("Pugilism", 10, 1, GOOD_CHANCE),
-    Attack("Freeze", 20, 1, EVEN_CHANCE)
+    Attack("Freeze", 20, 1, EVEN_CHANCE),
+    Attack("Maim", 30, 1, EVEN_CHANCE)
 };
 // ========================================
 
