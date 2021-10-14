@@ -2,8 +2,9 @@
 
 // Attacks =====================================
 std::vector<Attack> goblin_attacks = {
-    Attack("Flare Burn", 35, 1, EVEN_CHANCE),
-    Attack("Pitchfork Stab", 40, 1, GOOD_CHANCE)
+    Attack("Flare Burn", 35, 2, EVEN_CHANCE),
+    Attack("Pitchfork Stab", 40, 1, GOOD_CHANCE),
+    Attack("Pitchfork Toss", 50, 1, LOW_CHANCE)
 };
 // =============================================
 

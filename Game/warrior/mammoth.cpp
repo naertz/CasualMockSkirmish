@@ -3,7 +3,8 @@
 // Attacks ===================================
 std::vector<Attack> mammoth_attacks = {
     Attack("Stomp", 150, 2, HIGH_CHANCE),
-    Attack("Tusk Charge", 170, 3, EVEN_CHANCE)
+    Attack("Tusk Charge", 170, 3, EVEN_CHANCE),
+    Attack("Spit", 30, 1, PERFECT_CHANCE)
 };
 // ===========================================
 

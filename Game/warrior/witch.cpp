@@ -3,7 +3,8 @@
 // Attacks =============================
 std::vector<Attack> witch_attacks = {
     Attack("Hex", 75, 3, GOOD_CHANCE),
-    Attack("Poison", 60, 1, EVEN_CHANCE)
+    Attack("Poison", 60, 1, EVEN_CHANCE),
+    Attack("Mean Look", 10, 1, PERFECT_CHANCE)
 };
 // =====================================
 

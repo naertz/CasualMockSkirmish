@@ -12,15 +12,6 @@ class Attack;  // Forward Attack Declaration
 #include <string>
 #include <vector>
 
-enum chance_amounts {
-    SLIM_CHANCE    = 25,
-    LOW_CHANCE     = 40,
-    EVEN_CHANCE    = 50,
-    GOOD_CHANCE    = 60,
-    HIGH_CHANCE    = 75,
-    PERFECT_CHANCE = 100
-};
-
 class Warrior : private Entity {
     public:
         virtual ~Warrior(void);                                                                                                  // Destructor
