@@ -2,8 +2,8 @@
 
 // Attacks ===================================
 std::vector<Attack> ogre_attacks = {
-    Attack("Body Slam", 200, 2, GOOD_CHANCE),
-    Attack("Club Smash", 150, 1, EVEN_CHANCE),
+    Attack("Body Slam", 200, 2, EVEN_CHANCE),
+    Attack("Club Smash", 150, 1, GOOD_CHANCE),
     Attack("Foul Breath", 50, 3, LOW_CHANCE)
 };
 // ===========================================
