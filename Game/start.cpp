@@ -55,10 +55,10 @@ int main(void) {
         print_scenario("1", "1 grunt", "1 grunt");
         print_scenario("2", "2 grunts", "2 grunts");
         print_scenario("3", "4 goblins", "2 dwarves");
-        print_scenario("4", "5 ogres", "9 trolls");
+        print_scenario("4", "1 ogres", "7 trolls");
         print_scenario("5", "1 dragon", "13 dwarves");
-        print_scenario("6", "1 dwarf + 1 grunt + 1 troll", "1 goblin + 1 ogre");
-        print_scenario("7", "5 knights", "3 wolves");
+        print_scenario("6", "5 dwarves + 4 grunts + 2 trolls", "1 goblin + 1 ogre");
+        print_scenario("7", "1 knight", "7 wolves");
         print_scenario("8", "1 mammoth", "2 dragons");
         print_scenario("9", "4 sorcerers", "2 knights + 1 wolf");
         print_quit();
@@ -123,17 +123,13 @@ int main(void) {
                 start_skirmish(team_red, team_blue);
                 print();
                 break;
-            } case 4: { // 5 ogres vs 9 trolls
-                // Initialize 5 ogres for team red.
+            } case 4: { // 1 ogres vs 7 trolls
+                // Initialize 1 ogre for team red.
                 team_red  = {
-                    new Ogre("Dozug"),
-                    new Ogre("Grizikur"),
-                    new Ogre("Iuzug"),
-                    new Ogre("Glezakag"),
-                    new Ogre("Krezar")
+                    new Ogre("Dozug")
                 };
 
-                // Initialize 9 trolls for team blue.
+                // Initialize 7 trolls for team blue.
                 team_blue = {
                     new Troll("Tom"),
                     new Troll("Bert"),
@@ -141,9 +137,7 @@ int main(void) {
                     new Troll("Torog"),
                     new Troll("Rogash"),
                     new Troll("Dingal"),
-                    new Troll("Bill"),
-                    new Troll("Ronald"),
-                    new Troll("Bolmug")
+                    new Troll("Bill")
                 };
 
                 // Start skirmish simulation.
@@ -179,12 +173,20 @@ int main(void) {
                 start_skirmish(team_red, team_blue);
                 print();
                 break;
-            } case 6: { // 1 dwarf + 1 grunt + 1 troll vs 1 goblin + 1 ogre
-                // Initialize 1 dwarf, 1 grunt, and 1 troll for team red.
+            } case 6: { // 5 dwarf + 4 grunt + 2 troll vs 1 goblin + 1 ogre
+                // Initialize 5 dwarves, 4 grunts, and 2 trolls for team red.
                 team_red  = {
                     new Dwarf("Thorin"),
+                    new Dwarf("Redbeard"),
+                    new Dwarf("Dorin"),
+                    new Dwarf("Dwurf"),
+                    new Dwarf("Murf"),
                     new Grunt("Bilbo"),
-                    new Troll("Bruz")
+                    new Grunt("Gollum"),
+                    new Grunt("Smeagol"),
+                    new Grunt("Bigfoot"),
+                    new Troll("Bruz"),
+                    new Troll("Truz")
                 };
 
                 // Initialize 1 goblin and 1 ogre for team blue.
@@ -195,21 +197,21 @@ int main(void) {
                 start_skirmish(team_red, team_blue);
                 print();
                 break;
-            } case 7: { // 5 knights vs 3 wolves
-                // Initialize 5 knights for team red.
+            } case 7: { // 1 knight vs 7 wolves
+                // Initialize 1 knight for team red.
                 team_red  = {
-                    new Knight("Peregrin"),
-                    new Knight("Elessar"),
-                    new Knight("Aragorn"),
-                    new Knight("Hakon"),
-                    new Knight("Emund")
+                    new Knight("Peregrin")
                 };
 
-                // Initialize 3 wolves for team blue.
+                // Initialize 7 wolves for team blue.
                 team_blue = {
                     new Wolf("Harog"),
                     new Wolf("Harach"),
-                    new Wolf("Ulku")
+                    new Wolf("Ulku"),
+                    new Wolf("Bandi"),
+                    new Wolf("Pooch"),
+                    new Wolf("Ukwu"),
+                    new Wolf("Pamalam")
                 };
 
                 // Start skirmish simulation.
