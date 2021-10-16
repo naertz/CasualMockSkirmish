@@ -30,6 +30,12 @@
 #include "warrior/sorcerer.h"
 #include "warrior/troll.h"
 #include "warrior/wolf.h"
+#include "warrior/ghost.h"
+#include "warrior/witch.h"
+#include "warrior/snowman.h"
+#include "warrior/bandit.h"
+#include "warrior/basilisk.h"
+#include "warrior/serpent.h"
 
 #include <string>
 #include <ctime>
@@ -61,6 +67,9 @@ int main(void) {
         print_scenario("7", "1 knight", "7 wolves");
         print_scenario("8", "1 mammoth", "2 dragons");
         print_scenario("9", "4 sorcerers", "2 knights + 1 wolf");
+        print_scenario("10", "1 ghost", "8 witches");
+        print_scenario("11", "9 snowmen", "3 bandits");
+        print_scenario("12", "1 serpent + 3 snowmen + 1 ghost", "1 basilisk");
         print_quit();
         print();
 
@@ -68,7 +77,7 @@ int main(void) {
         std::vector<Warrior*> team_blue;
 
         // Determine option selected.
-        switch (choice = get_option(10)) {
+        switch (choice = get_option(13)) {
             case 1: { // 1 grunt vs 1 grunt
                 // Initialize 1 grunt for team red.
                 team_red  = {
@@ -257,14 +266,80 @@ int main(void) {
                 start_skirmish(team_red, team_blue);
                 print();
                 break;
-            } default: {
+           } case 10: { // 1 ghost vs 8 witches
+                // Initialize 1 ghost for team red.
+                team_red  = {
+                    new Ghost("Casper")
+                };
+
+                // Initialize 8 witches for team blue.
+                team_blue = {
+                    new Witch("Glenda"),
+                    new Witch("Snaggletooth"),
+                    new Witch("Nosewart"),
+                    new Witch("Circe"),
+                    new Witch("Blair"),
+                    new Witch("Hecate"),
+                    new Witch("Morgan le Fay"),
+                    new Witch("Nimue")
+                };
+                // Start skirmish simulation.
+                print();
+                start_skirmish(team_red, team_blue);
+                print();
+                break;
+           } case 11: { // 9 snowmen vs 3 bandits
+                // Initialize 9 snowmen for team red.
+                team_red  = {
+                    new Snowman("Tim"),
+                    new Snowman("Angel Mcslushie"),
+                    new Snowman("Hot Head Alan"),
+                    new Snowman("Jimmy No Nose"),
+                    new Snowman("Timmy knows Jimmy No Nose"),
+                    new Snowman("Frosty"),
+                    new Snowman("Frosty's Cousin Slushie"),
+                    new Snowman("Melty"),
+                    new Snowman("Melvin No Buttons")
+                };
+
+                // Initialize 3 bandits for team blue.
+                team_blue = {
+                    new Bandit("Scary Terry"),
+                    new Bandit("Mischief Mike"),
+                    new Bandit("Burglar Barry")
+                };
+                // Start skirmish simulation.
+                print();
+                start_skirmish(team_red, team_blue);
+                print();
+                break;
+          } case 12: { // 3 snowmen 1 serpant 1 ghost vs 1 basilisk
+                // Initialize 9 snowmen for team red.
+                team_red  = {
+                    new Serpent("Rattles"),
+                    new Ghost("Casper"),
+                    new Snowman("Tim"),
+                    new Snowman("Angel Mcslushie"),
+                    new Snowman("Hot Head Alan")
+                };
+
+                // Initialize 1 basilisk for team blue.
+                team_blue = {
+                    new Basilisk("Zaccasash")
+                };
+                // Start skirmish simulation.
+                print();
+                start_skirmish(team_red, team_blue);
+                print();
+                break;
+        } default: {
                 // End game.
                 print();
                 print("Bye.");
                 break;
             }
         }
-    } while (choice < 10);
+    } while (choice < 13);
 
     // Exit program successfully.
     return 0;
@@ -302,7 +377,7 @@ static void print_scenario(std::string optionNumber, std::string teamRed, std::s
  */
 
 static void print_quit(void) {
-    print("10", YELLOW, false);
+    print("13", YELLOW, false);
     print(" - ", DARK_WHITE, false);
     print("Quit", MAGENTA);
 }
