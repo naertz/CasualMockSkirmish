@@ -348,8 +348,8 @@ int main(void) {
             team_blue = { //1 mammoth
                 new Ghost("Scary Gary"),
                 new Ghost("Slimer"),
-                new Sorcerer("Stay Puft"),
-                new Sorcerer("Greg"),
+                new Sorcerer("Bimble"),
+                new Sorcerer("Yerdott"),
                 new Grunt("Ungor")
             };
             print();
@@ -358,15 +358,15 @@ int main(void) {
             break;
         } case 14: {
             team_red = {
-                new Wolf(""),
-                new Bandit("")
+                new Wolf("Doggo"),
+                new Bandit("Buster")
             };
 
             //
             team_blue = {
-                new Goblin(""),
-                new Snowman(""),
-                new Snowman("")
+                new Goblin("Irk"),
+                new Snowman("The Cold One"),
+                new Snowman("Mr. Freeze")
             };
             print();
             start_skirmish(team_red, team_blue);
