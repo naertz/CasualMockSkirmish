@@ -1,13 +1,14 @@
 #include "warrior.h"
 
-// Constructor(s) =============================================================================================================
+// Constructor(s) ================================================================================================================================
 // Main
-Warrior::Warrior(std::string warrior_type, std::string warrior_name, unsigned int health_capacity, std::vector<Attack> attacks)
+Warrior::Warrior(std::string warrior_type, std::string warrior_name, unsigned int health_capacity, std::vector<Attack> attacks, unsigned int cost)
     : type(warrior_type)
     , name(warrior_name)
     , health(health_capacity)
-    , attacks(attacks) { }
-// ============================================================================================================================
+    , attacks(attacks)
+    , cost(cost) { }
+// ===============================================================================================================================================
 
 // Destructor ===========
 // Main
@@ -43,6 +44,11 @@ std::string Warrior::get_name(void) const {
 // Health Amount
 unsigned int Warrior::get_health(void) const {
     return health;
+}
+
+// Cost
+unsigned int Warrior::get_cost(void) const {
+    return cost;
 }
 // ===========================================
 

@@ -8,7 +8,7 @@ std::vector<Attack> snowman_attacks = {
 };
 // ==========================================
 
-// Constructor(s) ====================================================================================
+// Constructor(s) ========================================================================================
 // Snowman Name To Base Main
-Snowman::Snowman(std::string snowman_name) : Warrior("Snowman", snowman_name, 30, snowman_attacks) { }
-// ===================================================================================================
+Snowman::Snowman(std::string snowman_name) : Warrior("Snowman", snowman_name, 30, snowman_attacks, 10) { }
+// =======================================================================================================
