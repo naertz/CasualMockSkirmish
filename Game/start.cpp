@@ -70,6 +70,8 @@ int main(void) {
         print_scenario("10", "1 ghost", "8 witches");
         print_scenario("11", "9 snowmen", "3 bandits");
         print_scenario("12", "1 serpent + 3 snowmen + 1 ghost", "1 basilisk");
+        print_scenario("13", "3 snowmen + 1 ogre + 1 grunt", "2 ghosts + 2 sorcerers + 1 grunt");
+        print_scenario("14", "test", "test");
         print_quit();
         print();
 
@@ -77,7 +79,7 @@ int main(void) {
         std::vector<Warrior*> team_blue;
 
         // Determine option selected.
-        switch (choice = get_option(13)) {
+        switch (choice = get_option(15)) {
             case 1: { // 1 grunt vs 1 grunt
                 // Initialize 1 grunt for team red.
                 team_red  = {
@@ -332,6 +334,44 @@ int main(void) {
                 start_skirmish(team_red, team_blue);
                 print();
                 break;
+        } case 13: {
+            //3 snowmen and a ogre and a grunt vs 2 ghost and 2 sorcerer and a grunt
+            team_red = { //22 snowmen and 5 wolves
+                new Snowman("Melter Skelter"),
+                new Snowman("Quizsnows"),
+                new Snowman("Icy Stars"),
+                new Ogre("Blurek"),
+                new Grunt("Glik")
+            };
+
+            //
+            team_blue = { //1 mammoth
+                new Ghost("Scary Gary"),
+                new Ghost("Slimer"),
+                new Sorcerer("Stay Puft"),
+                new Sorcerer("Greg"),
+                new Grunt("Ungor")
+            };
+            print();
+            start_skirmish(team_red, team_blue);
+            print();
+            break;
+        } case 14: {
+            team_red = {
+                new Wolf(""),
+                new Bandit("")
+            };
+
+            //
+            team_blue = {
+                new Goblin(""),
+                new Snowman(""),
+                new Snowman("")
+            };
+            print();
+            start_skirmish(team_red, team_blue);
+            print();
+            break;
         } default: {
                 // End game.
                 print();
@@ -339,7 +379,7 @@ int main(void) {
                 break;
             }
         }
-    } while (choice < 13);
+    } while (choice < 15);
 
     // Exit program successfully.
     return 0;
@@ -377,7 +417,7 @@ static void print_scenario(std::string optionNumber, std::string teamRed, std::s
  */
 
 static void print_quit(void) {
-    print("13", YELLOW, false);
+    print("15", YELLOW, false);
     print(" - ", DARK_WHITE, false);
     print("Quit", MAGENTA);
 }
