@@ -10,6 +10,7 @@ CONFIG -= app_bundle
 SOURCES += \
     attack.cpp \
     color_text.cpp \
+    select.cpp \
     skirmish.cpp \
     start.cpp \
     user_input.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     attack.h \
     color_text.h \
     entity.h \
+    select.h \
     skirmish.h \
     user_input.h \
     warrior.h \
