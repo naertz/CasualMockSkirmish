@@ -9,7 +9,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
     attack.cpp \
-    print.cpp \
+    color_text.cpp \
     skirmish.cpp \
     start.cpp \
     user_input.cpp \
@@ -38,8 +38,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     attack.h \
+    color_text.h \
     entity.h \
-    print.h \
     skirmish.h \
     user_input.h \
     warrior.h \
