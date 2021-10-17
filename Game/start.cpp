@@ -71,7 +71,7 @@ int main(void) {
         print_scenario("11", "9 snowmen", "3 bandits");
         print_scenario("12", "1 serpent + 3 snowmen + 1 ghost", "1 basilisk");
         print_scenario("13", "3 snowmen + 1 ogre + 1 grunt", "2 ghosts + 2 sorcerers + 1 grunt");
-        print_scenario("14", "test", "test");
+        print_scenario("14", "1 wolf + 1 bandit", "1 goblin + 2 snowmen");
         print_quit();
         print();
 
@@ -356,7 +356,7 @@ int main(void) {
             start_skirmish(team_red, team_blue);
             print();
             break;
-        } case 14: {
+        } case 14: { //1 wolf and 1 bandit vs 1 goblin and 2 snowmen
             team_red = {
                 new Wolf("Doggo"),
                 new Bandit("Buster")
