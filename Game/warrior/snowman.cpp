@@ -1,12 +1,12 @@
 #include "snowman.h"
 
-// Attacks =================================
+// Attacks ==================================
 std::vector<Attack> snowman_attacks = {
     Attack("Snowball", 10, 1, GOOD_CHANCE),
     Attack("Earthquake", 80, 3, SLIM_CHANCE),
     Attack("Frostbite", 15, 1, HIGH_CHANCE)
 };
-// =========================================
+// ==========================================
 
 // Constructor(s) ====================================================================================
 // Snowman Name To Base Main

@@ -20,22 +20,22 @@
 #include "skirmish.h"
 #include "user_input.h"
 
+#include "warrior/bandit.h"
+#include "warrior/basilisk.h"
 #include "warrior/dragon.h"
 #include "warrior/dwarf.h"
+#include "warrior/ghost.h"
 #include "warrior/goblin.h"
 #include "warrior/grunt.h"
 #include "warrior/knight.h"
 #include "warrior/mammoth.h"
 #include "warrior/ogre.h"
+#include "warrior/serpent.h"
+#include "warrior/snowman.h"
 #include "warrior/sorcerer.h"
 #include "warrior/troll.h"
-#include "warrior/wolf.h"
-#include "warrior/ghost.h"
 #include "warrior/witch.h"
-#include "warrior/snowman.h"
-#include "warrior/bandit.h"
-#include "warrior/basilisk.h"
-#include "warrior/serpent.h"
+#include "warrior/wolf.h"
 
 #include <string>
 #include <ctime>
@@ -285,6 +285,7 @@ int main(void) {
                     new Witch("Morgan le Fay"),
                     new Witch("Nimue")
                 };
+
                 // Start skirmish simulation.
                 print();
                 start_skirmish(team_red, team_blue);
@@ -310,33 +311,35 @@ int main(void) {
                     new Bandit("Mischief Mike"),
                     new Bandit("Burglar Barry")
                 };
+
                 // Start skirmish simulation.
                 print();
                 start_skirmish(team_red, team_blue);
                 print();
                 break;
-          } case 12: { // 3 snowmen 1 serpant 1 ghost vs 1 basilisk
-                // Initialize 9 snowmen for team red.
+          } case 12: { // 3 snowmen + 1 serpent + 1 ghost vs 1 basilisk
+                // Initialize 3 snowmen, 1 serpent, and 1 ghost for team red.
                 team_red  = {
-                    new Serpent("Rattles"),
-                    new Ghost("Casper"),
                     new Snowman("Tim"),
                     new Snowman("Angel Mcslushie"),
-                    new Snowman("Hot Head Alan")
+                    new Snowman("Hot Head Alan"),
+                    new Serpent("Rattles"),
+                    new Ghost("Casper")
                 };
 
                 // Initialize 1 basilisk for team blue.
                 team_blue = {
                     new Basilisk("Zaccasash")
                 };
+
                 // Start skirmish simulation.
                 print();
                 start_skirmish(team_red, team_blue);
                 print();
                 break;
-        } case 13: {
-            //3 snowmen and a ogre and a grunt vs 2 ghost and 2 sorcerer and a grunt
-            team_red = { //22 snowmen and 5 wolves
+        } case 13: { // 3 snowmen + 1 ogre + 1 grunt vs 2 ghost + 2 sorcerer + 1 grunt
+            // Initialize 3 snowmen, 1 ogre, and 1 grunt for team red.
+            team_red = {
                 new Snowman("Melter Skelter"),
                 new Snowman("Quizsnows"),
                 new Snowman("Icy Stars"),
@@ -344,30 +347,35 @@ int main(void) {
                 new Grunt("Glik")
             };
 
-            //
-            team_blue = { //1 mammoth
+            // Initialize 2 ghosts, 2 sorcerers, and 1 grunt for team blue.
+            team_blue = {
                 new Ghost("Scary Gary"),
                 new Ghost("Slimer"),
                 new Sorcerer("Bimble"),
                 new Sorcerer("Yerdott"),
                 new Grunt("Ungor")
             };
+
+            // Start skirmish simulation.
             print();
             start_skirmish(team_red, team_blue);
             print();
             break;
-        } case 14: { //1 wolf and 1 bandit vs 1 goblin and 2 snowmen
+        } case 14: { // 1 wolf + 1 bandit vs 1 goblin + 2 snowmen
+            // Initialize 1 wolf and 1 bandit for team red.
             team_red = {
                 new Wolf("Doggo"),
                 new Bandit("Buster")
             };
 
-            //
+            // Initialize 1 goblin and 2 snowmen for team blue.
             team_blue = {
                 new Goblin("Irk"),
                 new Snowman("The Cold One"),
                 new Snowman("Mr. Freeze")
             };
+
+            // Start skirmish simulation.
             print();
             start_skirmish(team_red, team_blue);
             print();
