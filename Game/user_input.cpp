@@ -121,7 +121,7 @@ unsigned int get_option(unsigned int max_digit) {
  */
 
 unsigned int get_quantity(unsigned int max_digit) {
-    std::string prompt = get_color_string("Enter a value between ", DARK_WHITE) + get_color_string("1", CYAN) + get_color_string(" and ", DARK_WHITE) + get_color_string(std::to_string(max_digit), CYAN) + get_color_string(": ", DARK_WHITE);
+    std::string prompt = get_color_string("Enter a value between ", DARK_WHITE) + get_color_string("0", CYAN) + get_color_string(" and ", DARK_WHITE) + get_color_string(std::to_string(max_digit), CYAN) + get_color_string(": ", DARK_WHITE);
 
     std::string string_input = "0";
 
