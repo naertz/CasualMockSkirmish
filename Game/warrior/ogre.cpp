@@ -9,6 +9,9 @@ std::vector<Attack> ogre_attacks = {
 // ===========================================
 
 // Constructor(s) ========================================================================
+// Default To Base Main
+Ogre::Ogre() : Warrior("Ogre", "", 1000, ogre_attacks, 70) { }
+
 // Ogre Name To Base Main
 Ogre::Ogre(std::string ogre_name) : Warrior("Ogre", ogre_name, 1000, ogre_attacks, 70) { }
 // =======================================================================================

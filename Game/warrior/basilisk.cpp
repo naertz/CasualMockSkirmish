@@ -9,6 +9,9 @@ std::vector<Attack> basilisk_attacks = {
 // ============================================
 
 // Constructor(s) =================================================================================================
+// Default To Base Main
+Basilisk::Basilisk() : Warrior("Basilisk", "", 2800, basilisk_attacks, 175) { }
+
 // Basilisk Name To Base Main
 Basilisk::Basilisk(std::string basilisk_name) : Warrior("Basilisk", basilisk_name, 2800, basilisk_attacks, 175) { }
 // ================================================================================================================

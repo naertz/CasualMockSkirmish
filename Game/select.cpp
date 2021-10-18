@@ -21,12 +21,16 @@
 #include "warrior/witch.h"
 #include "warrior/wolf.h"
 
+#include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <utility>
 #include <vector>
 
-static std::string get_scenario_option(std::string option_number, std::string team_red, std::string team_blue);
-static std::string get_quit_option(std::string option_number);
+static std::string get_scenario_option(const std::string option_number, const std::string team_blue);
+static std::string get_quit_option(const std::string option_number);
+static int get_longest_string_length(const std::vector<std::string>& column);
+static std::vector<Warrior*> select_warriors(const unsigned int max_total_cost);
 
 void select_scenario(void) {
     // Initialize choice input.
@@ -34,300 +38,79 @@ void select_scenario(void) {
 
     do {
         // Print scenario and quit options.
-        std::cout << get_scenario_option("1", "1 grunt", "1 grunt") << "\n"
-                  << get_scenario_option("2", "2 grunts", "2 grunts") << "\n"
-                  << get_scenario_option("3", "4 goblins", "2 dwarves") << "\n"
-                  << get_scenario_option("4", "1 ogres", "7 trolls") << "\n"
-                  << get_scenario_option("5", "1 dragon", "13 dwarves") << "\n"
-                  << get_scenario_option("6", "5 dwarves + 4 grunts + 2 trolls", "1 goblin + 1 ogre") << "\n"
-                  << get_scenario_option("7", "1 knight", "7 wolves") << "\n"
-                  << get_scenario_option("8", "1 mammoth", "2 dragons") << "\n"
-                  << get_scenario_option("9", "4 sorcerers", "2 knights + 1 wolf") << "\n"
-                  << get_scenario_option("10", "1 ghost", "8 witches") << "\n"
-                  << get_scenario_option("11", "9 snowmen", "3 bandits") << "\n"
-                  << get_scenario_option("12", "3 snowmen + 1 serpent + 1 ghost", "1 basilisk") << "\n"
-                  << get_scenario_option("13", "3 snowmen + 1 ogre + 1 grunt", "2 ghosts + 2 sorcerers + 1 grunt") << "\n"
-                  << get_scenario_option("14", "1 wolf + 1 bandit", "1 goblin + 2 snowmen") << "\n"
-                  << get_quit_option("15") << "\n\n";
+        std::cout << get_scenario_option("1", "2 grunts") << "\n"
+                  << get_scenario_option("2", "3 snowmen") << "\n"
+                  << get_scenario_option("3", "2 mammoths") << "\n"
+                  << get_scenario_option("4", "1 basilisk + 1 dragon") << "\n"
+                  << get_quit_option("5") << "\n\n\n";
 
         // Get user input for option choice.
         choice = get_option(15);
 
-        std::cout << "\n";
+        std::cout << "\n\n";
 
         std::vector<Warrior*> team_red;
         std::vector<Warrior*> team_blue;
 
         // Determine option selected.
         switch (choice) {
-            case 1: { // 1 grunt vs 1 grunt
-                // Initialize 1 grunt for team red.
-                team_red  = {
-                    new Grunt("Billy")
-                };
-
-                // Initialize 1 grunt for team blue.
-                team_blue = {
-                    new Grunt("Tasha")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 2: { // 2 grunts vs 2 grunts
-                // Initialize 2 grunts for team red.
-                team_red  = {
-                    new Grunt("Billy"),
-                    new Grunt("Tasha")
-                };
+            case 1: { // 2 grunts
+                // Get team red warriors.
+                team_red = select_warriors(40);
 
                 // Initialize 2 grunts for team blue.
                 team_blue = {
-                    new Grunt("Sam"),
+                    new Grunt("Billy"),
                     new Grunt("Bessie")
                 };
 
+                std::cout << "\n";
+
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            } case 3: { // 4 goblins vs 2 dwarves
-                // Initialize 4 goblins for team red.
-                team_red = {
-                    new Goblin("Azog"),
-                    new Goblin("Bolg"),
-                    new Goblin("Golfimbul"),
-                    new Goblin("Yazneg")
-                };
+            } case 2: { // 3 snowmen
+                // Get team red warriors.
+                team_red = select_warriors(40);
 
-                // Initialize 2 dwarves for team blue.
+                // Initialize 3 snowmen for team blue.
                 team_blue = {
-                    new Dwarf("Bifur"),
-                    new Dwarf("Bofur")
+                    new Snowman("Hot Head Alan"),
+                    new Snowman("Frosty's Cousin Slushie"),
+                    new Snowman("Melty")
                 };
+
+                std::cout << "\n";
 
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            } case 4: { // 1 ogres vs 7 trolls
-                // Initialize 1 ogre for team red.
-                team_red  = {
-                    new Ogre("Dozug")
-                };
+            } case 3: { // 2 mammoths
+                // Get team red warriors.
+                team_red = select_warriors(200);
 
-                // Initialize 7 trolls for team blue.
+                // Initialize 3 mammoths for team blue.
                 team_blue = {
-                    new Troll("Tom"),
-                    new Troll("Bert"),
-                    new Troll("William"),
-                    new Troll("Torog"),
-                    new Troll("Rogash"),
-                    new Troll("Dingal"),
-                    new Troll("Bill")
+                    new Mammoth("Mumak"),
+                    new Mammoth("Tumak")
                 };
+
+                std::cout << "\n";
 
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            } case 5: { // 1 dragon vs 13 dwarves
-                // Initialize 1 dragon for team red.
-                team_red  = {
+            } case 4: { // 1 basilisk + 1 dragon
+                // Get team red warriors.
+                team_red = select_warriors(430);
+
+                // Initialize 1 basilisk and 1 dragon for team blue.
+                team_blue = {
+                    new Basilisk("Salazar"),
                     new Dragon("Smaug")
                 };
 
-                // Initialize 13 dwarves for team blue.
-                team_blue = {
-                    new Dwarf("Dwalin"),
-                    new Dwarf("Balin"),
-                    new Dwarf("Kili"),
-                    new Dwarf("Fili"),
-                    new Dwarf("Dori"),
-                    new Dwarf("Nori"),
-                    new Dwarf("Ori"),
-                    new Dwarf("Oin"),
-                    new Dwarf("Gloin"),
-                    new Dwarf("Bifur"),
-                    new Dwarf("Bofur"),
-                    new Dwarf("Bombur"),
-                    new Dwarf("Thorin")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 6: { // 5 dwarf + 4 grunt + 2 troll vs 1 goblin + 1 ogre
-                // Initialize 5 dwarves, 4 grunts, and 2 trolls for team red.
-                team_red  = {
-                    new Dwarf("Thorin"),
-                    new Dwarf("Redbeard"),
-                    new Dwarf("Dorin"),
-                    new Dwarf("Dwurf"),
-                    new Dwarf("Murf"),
-                    new Grunt("Bilbo"),
-                    new Grunt("Gollum"),
-                    new Grunt("Smeagol"),
-                    new Grunt("Bigfoot"),
-                    new Troll("Bruz"),
-                    new Troll("Truz")
-                };
-
-                // Initialize 1 goblin and 1 ogre for team blue.
-                team_blue = { new Goblin("Grinnah"), new Ogre("Ozoc") };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 7: { // 1 knight vs 7 wolves
-                // Initialize 1 knight for team red.
-                team_red  = {
-                    new Knight("Peregrin")
-                };
-
-                // Initialize 7 wolves for team blue.
-                team_blue = {
-                    new Wolf("Harog"),
-                    new Wolf("Harach"),
-                    new Wolf("Ulku"),
-                    new Wolf("Bandi"),
-                    new Wolf("Pooch"),
-                    new Wolf("Ukwu"),
-                    new Wolf("Pamalam")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 8: { // 1 mammoth vs 2 dragons
-                // Initialize 1 mammoth for team red.
-                team_red  = {
-                    new Mammoth("Mumak")
-                };
-
-                // Initialize 2 dragons for team blue.
-                team_blue = {
-                    new Dragon("Scatha"),
-                    new Dragon("Gostir")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 9: { // 4 sorcerers vs 2 knights + 1 wolf
-                // Initialize 4 sorcerers for team red.
-                team_red  = {
-                    new Sorcerer("Merlin"),
-                    new Sorcerer("Nicolas"),
-                    new Sorcerer("Durion"),
-                    new Sorcerer("Cassandra")
-                };
-
-                // Initialize 2 knights and 1 wolf for team blue.
-                team_blue = {
-                    new Knight("Peregrin"),
-                    new Knight("Elessar"),
-                    new Wolf("Harog")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 10: { // 1 ghost vs 8 witches
-                // Initialize 1 ghost for team red.
-                team_red  = {
-                    new Ghost("Casper")
-                };
-
-                // Initialize 8 witches for team blue.
-                team_blue = {
-                    new Witch("Glenda"),
-                    new Witch("Snaggletooth"),
-                    new Witch("Nosewart"),
-                    new Witch("Circe"),
-                    new Witch("Blair"),
-                    new Witch("Hecate"),
-                    new Witch("Morgan le Fay"),
-                    new Witch("Nimue")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 11: { // 9 snowmen vs 3 bandits
-                // Initialize 9 snowmen for team red.
-                team_red  = {
-                    new Snowman("Tim"),
-                    new Snowman("Angel Mcslushie"),
-                    new Snowman("Hot Head Alan"),
-                    new Snowman("Jimmy No Nose"),
-                    new Snowman("Timmy knows Jimmy No Nose"),
-                    new Snowman("Frosty"),
-                    new Snowman("Frosty's Cousin Slushie"),
-                    new Snowman("Melty"),
-                    new Snowman("Melvin No Buttons")
-                };
-
-                // Initialize 3 bandits for team blue.
-                team_blue = {
-                    new Bandit("Scary Terry"),
-                    new Bandit("Mischief Mike"),
-                    new Bandit("Burglar Barry")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 12: { // 3 snowmen + 1 serpent + 1 ghost vs 1 basilisk
-                // Initialize 3 snowmen, 1 serpent, and 1 ghost for team red.
-                team_red  = {
-                    new Snowman("Tim"),
-                    new Snowman("Angel Mcslushie"),
-                    new Snowman("Hot Head Alan"),
-                    new Serpent("Rattles"),
-                    new Ghost("Casper")
-                };
-
-                // Initialize 1 basilisk for team blue.
-                team_blue = {
-                    new Basilisk("Zaccasash")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 13: { // 3 snowmen + 1 ogre + 1 grunt vs 2 ghost + 2 sorcerer + 1 grunt
-                // Initialize 3 snowmen, 1 ogre, and 1 grunt for team red.
-                team_red = {
-                    new Snowman("Melter Skelter"),
-                    new Snowman("Quizsnows"),
-                    new Snowman("Icy Stars"),
-                    new Ogre("Blurek"),
-                    new Grunt("Glik")
-                };
-
-                // Initialize 2 ghosts, 2 sorcerers, and 1 grunt for team blue.
-                team_blue = {
-                    new Ghost("Scary Gary"),
-                    new Ghost("Slimer"),
-                    new Sorcerer("Bimble"),
-                    new Sorcerer("Yerdott"),
-                    new Grunt("Ungor")
-                };
-
-                // Start skirmish simulation.
-                start_skirmish(team_red, team_blue);
-                break;
-            } case 14: { // 1 wolf + 1 bandit vs 1 goblin + 2 snowmen
-                // Initialize 1 wolf and 1 bandit for team red.
-                team_red = {
-                    new Wolf("Doggo"),
-                    new Bandit("Buster")
-                };
-
-                // Initialize 1 goblin and 2 snowmen for team blue.
-                team_blue = {
-                    new Goblin("Irk"),
-                    new Snowman("The Cold One"),
-                    new Snowman("Mr. Freeze")
-                };
+                std::cout << "\n";
 
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
@@ -340,7 +123,7 @@ void select_scenario(void) {
         }
 
         std::cout << "\n";
-    } while (choice < 15);
+    } while (choice < 5);
 }
 
 /**
@@ -351,9 +134,9 @@ void select_scenario(void) {
  * @return = colored scenario option
  */
 
-static std::string get_scenario_option(std::string option_number, std::string team_red, std::string team_blue) {
+static std::string get_scenario_option(const std::string option_number, const std::string team_blue) {
     std::stringstream scenario;
-    scenario << get_color_string(option_number, CYAN) << get_color_string(" - ", DARK_WHITE) << get_color_string(team_red, RED) << get_color_string(" vs ", DARK_WHITE) << get_color_string(team_blue, BLUE);
+    scenario << get_color_string(option_number, CYAN) << get_color_string(" - ", DARK_WHITE) << get_color_string(team_blue, BLUE);
     return scenario.str();
 }
 
@@ -363,8 +146,535 @@ static std::string get_scenario_option(std::string option_number, std::string te
  * @return = colored quit option
  */
 
-static std::string get_quit_option(std::string option_number) {
+static std::string get_quit_option(const std::string option_number) {
     std::stringstream quit;
     quit << get_color_string(option_number, YELLOW) << get_color_string(" - ", DARK_WHITE) << get_color_string("Quit", MAGENTA);
     return quit.str();
+}
+
+/**
+ * @brief get_longest_string_length loops through each string in a vector, finds the longest string, and returns the string length to use for setting field widths.
+ * @param column = vector of column strings
+ * @return = longest string length
+ */
+
+static int get_longest_string_length(const std::vector<std::string>& column) {
+    // Store the first string.
+    std::string current_column_string = column[0];
+
+    // Initialize the current string length integer for the upcoming for loop.
+    int current_column_string_length = 0;
+    // Store the first string length to the longest string length integer.
+    int longest_column_string_length = current_column_string.length();
+
+    // Loop through the rest of the strings to determine the longest string length.
+    for (unsigned int i = 1; i < column.size(); ++i) {
+        current_column_string = column[i];
+        current_column_string_length = current_column_string.length();
+
+        if (current_column_string_length > longest_column_string_length) {
+            longest_column_string_length = current_column_string_length;
+        }
+    }
+
+    return longest_column_string_length;
+}
+
+/**
+ * @brief select_warriors displays a menu to select warriors and gets a valid vector of warriors.
+ * @param max_total_cost = max total cost available to select warriors for scenario
+ * @return = vector of team red warriors
+ */
+
+static std::vector<Warrior*> select_warriors(unsigned int max_total_cost) {
+    // String for headings
+    std::string option_heading = get_color_string("Option", DARK_CYAN);
+    std::string warrior_heading = get_color_string("Warrior", DARK_RED);
+    std::string cost_heading = get_color_string("Cost", DARK_GREEN);
+    std::string quantity_heading = get_color_string("Quantity", GRAY);
+
+    // Strings for pairs of Warriors ordered by cost and quantities
+    std::vector<std::pair<Warrior*, unsigned int>> warriors {
+        { new Snowman(),  0 }, // Cost:  10
+        { new Grunt(),    0 }, // Cost:  15
+        { new Bandit(),   0 }, // Cost:  15
+        { new Wolf(),     0 }, // Cost:  15
+        { new Goblin(),   0 }, // Cost:  20
+        { new Witch(),    0 }, // Cost:  20
+        { new Sorcerer(), 0 }, // Cost:  25
+        { new Dwarf(),    0 }, // Cost:  30
+        { new Troll(),    0 }, // Cost:  35
+        { new Knight(),   0 }, // Cost:  40
+        { new Ghost(),    0 }, // Cost:  40
+        { new Ogre(),     0 }, // Cost:  70
+        { new Mammoth(),  0 }, // Cost:  85
+        { new Serpent(),  0 }, // Cost:  90
+        { new Basilisk(), 0 }, // Cost: 175
+        { new Dragon(),   0 }  // Cost: 175
+    };
+
+    // Vectors of strings for each column
+    std::vector<std::string> option_column = { option_heading };
+    unsigned option;
+    for (option = 1; option <= warriors.size(); ++option) {
+        option_column.push_back(get_color_string(std::to_string(option), CYAN));
+    }
+    option_column.push_back(get_color_string(std::to_string(option), YELLOW));
+
+    std::vector<std::string> warrior_column = { warrior_heading };
+    for (unsigned int i = 0; i < warriors.size(); ++i) {
+        warrior_column.push_back(get_color_string(warriors[i].first->get_type(), RED));
+    }
+    warrior_column.push_back(get_color_string("Submit", MAGENTA));
+
+    std::vector<std::string> cost_column = { cost_heading };
+    for (unsigned int i = 0; i < warriors.size(); ++i) {
+        cost_column.push_back(get_color_string(std::to_string(warriors[i].first->get_cost()), GREEN));
+    }
+
+    std::vector<std::string> quantity_column = { quantity_heading };
+    for (unsigned int i = 0; i < warriors.size(); ++i) {
+        quantity_column.push_back(get_color_string(std::to_string(warriors[i].second), WHITE));
+    }
+
+    // Length of longest string for each column
+    const int longest_option_length   = get_longest_string_length(option_column);
+    const int longest_warrior_length  = get_longest_string_length(warrior_column);
+    const int longest_cost_length     = get_longest_string_length(cost_column);
+    int longest_quantity_length       = get_longest_string_length(quantity_column);
+
+    // Length of width padding for each column
+    const int option_width   = longest_option_length;
+    const int warrior_width  = longest_warrior_length  + 4;
+    const int cost_width     = longest_cost_length     + 4;
+    int quantity_width       = longest_quantity_length + 4;
+
+    // Declare vector for team red.
+    std::vector<Warrior*> team_red;
+
+    // Initialize boolean for valid submission check.
+    bool is_valid_submission = false;
+    do {
+        // Current accumulated cost
+        unsigned int current_selection_cost = 0;
+        for (unsigned int i = 0; i < warriors.size(); ++i) {
+            current_selection_cost += warriors[i].first->get_cost() * warriors[i].second;
+        }
+
+        // Print formatted table.
+        std::stringstream warrior_selection_table;
+        for (unsigned int i = 0; i < option_column.size() - 1; ++i) {
+            warrior_selection_table << std::left << std::setw(option_width) << option_column[i] << std::right << std::setw(warrior_width) << warrior_column[i] << std::setw(cost_width) << cost_column[i] << std::setw(quantity_width) << quantity_column[i] << "\n";
+        }
+        warrior_selection_table << std::left << std::setw(option_width) << option_column.back() << std::right << std::setw(warrior_width) << warrior_column.back() << "\n\n" << get_color_string("Current Total", DARK_YELLOW) << get_color_string(":", DARK_WHITE) << " " << get_color_string(std::to_string(current_selection_cost), WHITE) << "\n" << get_color_string("Max Total", DARK_MAGENTA) << get_color_string(":", DARK_WHITE) << " " << get_color_string(std::to_string(max_total_cost), WHITE);
+
+        // Print table and prompt.
+        std::cout << warrior_selection_table.str() << "\n\n\n" <<  get_color_string("Select a warrior.", DARK_WHITE) << "\n";
+
+        // Validate input.
+        unsigned int warrior_selection = get_option(warriors.size() + 1);
+
+        switch (warrior_selection) {
+            case 1: { // Snowman
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of snowmen to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[0].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[1] = get_color_string(std::to_string(warriors[0].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 2: { // Grunt
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of grunts to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[1].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[2] = get_color_string(std::to_string(warriors[1].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 3: { // Bandit
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of bandits to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[2].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[3] = get_color_string(std::to_string(warriors[2].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 4: { // Wolf
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of wolves to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[3].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[4] = get_color_string(std::to_string(warriors[3].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 5: { // Goblin
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of goblins to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[4].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[5] = get_color_string(std::to_string(warriors[4].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 6: { // Witch
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of witches to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[5].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[6] = get_color_string(std::to_string(warriors[5].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 7: { // Sorcerer
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of sorcerers to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[6].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[7] = get_color_string(std::to_string(warriors[6].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 8: { // Dwarf
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of dwarves to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[7].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[8] = get_color_string(std::to_string(warriors[7].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 9: { // Troll
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of trolls to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[8].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[9] = get_color_string(std::to_string(warriors[8].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 10: { // Knight
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of knights to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[9].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[10] = get_color_string(std::to_string(warriors[9].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 11: { // Ghost
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of ghosts to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[10].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[11] = get_color_string(std::to_string(warriors[10].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 12: { // Ogre
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of ogres to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[11].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[12] = get_color_string(std::to_string(warriors[11].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 13: { // Mammoths
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of mammoths to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[12].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[13] = get_color_string(std::to_string(warriors[12].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 14: { // Serpent
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of serpents to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[13].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[14] = get_color_string(std::to_string(warriors[13].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 15: { // Basilisk
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of basilisks to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[14].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[15] = get_color_string(std::to_string(warriors[14].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 16: { // Dragon
+                // Print prompt.
+                std::cout << "\n\n" << get_color_string("Enter the amount of dragons to add to your team.", DARK_WHITE) << "\n";
+
+                // Update quantity.
+                warriors[15].second = get_quantity(999);
+
+                // Update quantity column.
+                quantity_column[16] = get_color_string(std::to_string(warriors[15].second), WHITE);
+
+                // Update longest length and column width.
+                longest_quantity_length = get_longest_string_length(quantity_column);
+                quantity_width = longest_quantity_length + 4;
+
+                std::cout << "\n\n";
+                break;
+            } case 17: { // Submit
+                std::cout << "\n";
+                if (current_selection_cost == 0) {
+                    std::cout << "\n" << get_color_string("No warriors selected.", DARK_RED) << "\n\n\n";
+                } else if (current_selection_cost > max_total_cost) {
+                    std::cout << "\n" << get_color_string("Exceeded max total cost.", DARK_RED) << "\n\n\n";
+                } else {
+                    std::cout << "\n";
+
+                    // Snowman
+                    for (unsigned int i = 0; i < warriors[0].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Snowman " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Snowman(name));
+                    }
+
+                    // Grunt
+                    for (unsigned int i = 0; i < warriors[1].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Grunt " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Grunt(name));
+                    }
+
+                    // Bandit
+                    for (unsigned int i = 0; i < warriors[2].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Bandit " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Bandit(name));
+                    }
+
+                    // Wolf
+                    for (unsigned int i = 0; i < warriors[3].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Wolf " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Wolf(name));
+                    }
+
+                    // Goblin
+                    for (unsigned int i = 0; i < warriors[4].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Goblin " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Goblin(name));
+                    }
+
+                    // Witch
+                    for (unsigned int i = 0; i < warriors[5].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Witch " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Witch(name));
+                    }
+
+                    // Sorcerer
+                    for (unsigned int i = 0; i < warriors[6].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Sorcerer " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Sorcerer(name));
+                    }
+
+                    // Dwarf
+                    for (unsigned int i = 0; i < warriors[7].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Dwarf " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Dwarf(name));
+                    }
+
+                    // Troll
+                    for (unsigned int i = 0; i < warriors[8].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Troll " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Troll(name));
+                    }
+
+                    // Knight
+                    for (unsigned int i = 0; i < warriors[9].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Knight " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Knight(name));
+                    }
+
+                    // Ghost
+                    for (unsigned int i = 0; i < warriors[10].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Ghost " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Ghost(name));
+                    }
+
+                    // Ogre
+                    for (unsigned int i = 0; i < warriors[11].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Ogre " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Ogre(name));
+                    }
+
+                    // Mammoth
+                    for (unsigned int i = 0; i < warriors[12].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Mammoth " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Mammoth(name));
+                    }
+
+                    // Serpent
+                    for (unsigned int i = 0; i < warriors[13].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Serpent " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Serpent(name));
+                    }
+
+                    // Basilisk
+                    for (unsigned int i = 0; i < warriors[14].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Basilisk " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Basilisk(name));
+                    }
+
+                    // Dragon
+                    for (unsigned int i = 0; i < warriors[15].second; ++i) {
+                        std::cout << get_color_string("Enter", DARK_WHITE) << " " << get_color_string("Dragon " + std::to_string(i + 1) + "'s", RED) << " " << get_color_string("name:", DARK_WHITE) << " " << std::flush;
+                        std::string name;
+                        std::getline(std::cin, name);
+                        team_red.push_back(new Dragon(name));
+                    }
+
+                    is_valid_submission = true;
+                }
+            }
+        }
+    } while (is_valid_submission == false);
+
+    std::cout << "\n";
+
+    return team_red;
 }

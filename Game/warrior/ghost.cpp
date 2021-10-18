@@ -9,6 +9,9 @@ std::vector<Attack> ghost_attacks = {
 // =========================================
 
 // Constructor(s) ==============================================================================
+// Default To Base Main
+Ghost::Ghost() : Warrior("Ghost", "", 1000, ghost_attacks, 40) { }
+
 // Ghost Name To Base Main
-Ghost::Ghost(std::string ghost_name) : Warrior("Ghost", ghost_name, 1000, ghost_attacks, 35) { }
+Ghost::Ghost(std::string ghost_name) : Warrior("Ghost", ghost_name, 1000, ghost_attacks, 40) { }
 // =============================================================================================

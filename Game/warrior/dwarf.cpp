@@ -9,6 +9,9 @@ std::vector<Attack> dwarf_attacks = {
 // ====================================
 
 // Constructor(s) =============================================================================
+// Default To Base Main
+Dwarf::Dwarf() : Warrior("Dwarf", "", 300, dwarf_attacks, 30) { }
+
 // Dwarf Name To Base Main
 Dwarf::Dwarf(std::string dwarf_name) : Warrior("Dwarf", dwarf_name, 300, dwarf_attacks, 30) { }
 // ============================================================================================

@@ -7,6 +7,7 @@
 
 class Snowman : public Warrior {
     public:
+        Snowman();                          // Default Constructor Delegated To Base Main Constructor
         Snowman(std::string snowman_name);  // Snowman Name Constructor Delegated To Base Main Constructor
 };
 

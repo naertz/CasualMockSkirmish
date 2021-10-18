@@ -51,15 +51,16 @@ string_to_unsigned_integer_error string_to_unsigned_integer_validation (unsigned
 /**
  * @brief string_to_unsigned_integer takes a given string and attempts to parse and return an unsigned integer. Upon error, unsigned integer is 0.
  * @param string_input = input string to be parsed
+ * @param invalid_result = default value if result is invalid
  * @return = an unsigned integer parsed from the input string
  */
 
-unsigned int string_to_unsigned_integer(std::string string_input) {
+unsigned int string_to_unsigned_integer(std::string string_input, unsigned int invalid_result) {
     // Convert string to c-string and then convert to constant byte string to pass to validation function.
     const char * string_input_pointer = string_input.c_str();
 
     // Declare unsigned integer to pass by reference and to store parsed result from input string.
-    unsigned int unsigned_integer_from_string = 0;
+    unsigned int unsigned_integer_from_string = invalid_result;
 
     // Call validation function and store error result to enum variable.
     string_to_unsigned_integer_error error_result = string_to_unsigned_integer_validation(unsigned_integer_from_string, string_input_pointer);
@@ -78,7 +79,7 @@ unsigned int string_to_unsigned_integer(std::string string_input) {
 }
 
 /**
- * @brief get_option prompts and gets validated input.
+ * @brief get_option prompts and gets validated input for option selection.
  * @param max_digit = number of options available
  * @return = validated input
  */
@@ -88,7 +89,9 @@ unsigned int get_option(unsigned int max_digit) {
 
     std::string string_input = "0";
 
-    unsigned int answer = 0;
+    const unsigned int invalid_input = 0;
+
+    unsigned int answer = invalid_input;
 
     bool is_valid_input = false;
 
@@ -98,10 +101,46 @@ unsigned int get_option(unsigned int max_digit) {
         std::getline(std::cin, string_input);
 
         if (string_input.length() <= 2) {
-            answer = string_to_unsigned_integer(string_input);
+            answer = string_to_unsigned_integer(string_input, invalid_input);
         }
 
         if (answer > 0 && answer <= max_digit) {
+            is_valid_input = true;
+        } else {
+            std::cout << get_color_string("Invalid input. Try again...", DARK_RED, "\n") << prompt << std::flush;
+        }
+    }
+
+    return answer;
+}
+
+/**
+ * @brief get_quantity prompts and gets validated input for quantity.
+ * @param max_digit = max quantity allowed
+ * @return = validated quantity input
+ */
+
+unsigned int get_quantity(unsigned int max_digit) {
+    std::string prompt = get_color_string("Enter a value between ", DARK_WHITE) + get_color_string("1", CYAN) + get_color_string(" and ", DARK_WHITE) + get_color_string(std::to_string(max_digit), CYAN) + get_color_string(": ", DARK_WHITE);
+
+    std::string string_input = "0";
+
+    const unsigned int invalid_input = 1000;
+
+    unsigned int answer = invalid_input;
+
+    bool is_valid_input = false;
+
+    std::cout << prompt << std::flush;
+
+    while (!is_valid_input) {
+        std::getline(std::cin, string_input);
+
+        if (string_input.length() <= 3) {
+            answer = string_to_unsigned_integer(string_input, invalid_input);
+        }
+
+        if (answer >= 0 && answer <= max_digit) {
             is_valid_input = true;
         } else {
             std::cout << get_color_string("Invalid input. Try again...", DARK_RED, "\n") << prompt << std::flush;

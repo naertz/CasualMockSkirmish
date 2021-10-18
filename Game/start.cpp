@@ -47,7 +47,7 @@ int main(void) {
     srand(static_cast<unsigned int>(time(nullptr)));
 
     // Print title.
-    std::cout << get_title_heading() << "\n\n";
+    std::cout << get_title_heading() << "\n\n\n";
 
     // Run select scenario menu.
     select_scenario();

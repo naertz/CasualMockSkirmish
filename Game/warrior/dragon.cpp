@@ -9,6 +9,9 @@ std::vector<Attack> dragon_attacks = {
 // ============================================
 
 // Constructor(s) =====================================================================================
+// Default To Base Main
+Dragon::Dragon() : Warrior("Dragon", "", 3000, dragon_attacks, 175) { }
+
 // Dragon Name To Base Main
 Dragon::Dragon(std::string dragon_name) : Warrior("Dragon", dragon_name, 3000, dragon_attacks, 175) { }
 // ====================================================================================================

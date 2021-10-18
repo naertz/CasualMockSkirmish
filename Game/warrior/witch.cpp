@@ -9,6 +9,9 @@ std::vector<Attack> witch_attacks = {
 // ===========================================
 
 // Constructor(s) ============================================================================
+// Default To Base Main
+Witch::Witch() : Warrior("Witch", "", 75, witch_attacks, 20) { }
+
 // Witch Name To Base Main
-Witch::Witch(std::string witch_name) : Warrior("Witch", witch_name, 75, witch_attacks, 15) { }
+Witch::Witch(std::string witch_name) : Warrior("Witch", witch_name, 75, witch_attacks, 20) { }
 // ===========================================================================================

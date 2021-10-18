@@ -9,6 +9,9 @@ std::vector<Attack> troll_attacks = {
 // ==========================================
 
 // Constructor(s) =============================================================================
+// Default To Base Main
+Troll::Troll() : Warrior("Troll", "", 400, troll_attacks, 35) { }
+
 // Troll Name To Base Main
 Troll::Troll(std::string troll_name) : Warrior("Troll", troll_name, 400, troll_attacks, 35) { }
 // ============================================================================================

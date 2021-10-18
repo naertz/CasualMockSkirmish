@@ -7,6 +7,7 @@
 
 class Troll : public Warrior {
     public:
+        Troll();                        // Default Constructor Delegated To Base Main Constructor
         Troll(std::string troll_name);  // Troll Name Constructor Delegated To Base Main Constructor
 };
 

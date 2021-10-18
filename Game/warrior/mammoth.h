@@ -7,6 +7,7 @@
 
 class Mammoth : public Warrior {
     public:
+        Mammoth();                          // Default Constructor Delegated To Base Main Constructor
         Mammoth(std::string mammoth_name);  // Mammoth Name Constructor Delegated To Base Main Constructor
 };
 

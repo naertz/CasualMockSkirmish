@@ -7,6 +7,7 @@
 
 class Ogre : public Warrior {
     public:
+        Ogre();                       // Default Constructor Delegated To Base Main Constructor
         Ogre(std::string ogre_name);  // Ogre Name Constructor Delegated To Base Main Constructor
 };
 

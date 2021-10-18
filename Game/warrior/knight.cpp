@@ -9,6 +9,9 @@ std::vector<Attack> knight_attacks = {
 // ==============================================
 
 // Constructor(s) ===================================================================================
+// Default To Base Main
+Knight::Knight() : Warrior("Knight", "", 600, knight_attacks, 40) { }
+
 // Knight Name To Base Main
 Knight::Knight(std::string knight_name) : Warrior("Knight", knight_name, 600, knight_attacks, 40) { }
 // ==================================================================================================

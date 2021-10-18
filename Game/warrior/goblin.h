@@ -7,6 +7,7 @@
 
 class Goblin : public Warrior {
     public:
+        Goblin();                         // Default Constructor Delegated To Base Main Constructor
         Goblin(std::string goblin_name);  // Goblin Name Constructor Delegated To Base Main Constructor
 };
 

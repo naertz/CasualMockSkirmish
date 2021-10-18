@@ -9,6 +9,9 @@ std::vector<Attack> serpent_attacks = {
 // ============================================
 
 // Constructor(s) ==========================================================================================
+// Default To Base Main
+Serpent::Serpent() : Warrior("Serpent", "", 1200, serpent_attacks, 90) { }
+
 // Serpent Name To Base Main
 Serpent::Serpent(std::string serpent_name) : Warrior("Serpent", serpent_name, 1200, serpent_attacks, 90) { }
 // =========================================================================================================

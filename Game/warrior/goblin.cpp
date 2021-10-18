@@ -9,6 +9,9 @@ std::vector<Attack> goblin_attacks = {
 // ==============================================
 
 // Constructor(s) ===================================================================================
+// Default To Base Main
+Goblin::Goblin() : Warrior("Goblin", "", 150, goblin_attacks, 20) { }
+
 // Goblin Name To Base Main
 Goblin::Goblin(std::string goblin_name) : Warrior("Goblin", goblin_name, 150, goblin_attacks, 20) { }
 // ==================================================================================================

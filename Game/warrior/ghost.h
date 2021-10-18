@@ -8,6 +8,7 @@
 
 class Ghost : public Warrior {
     public:
+        Ghost();                        // Default Constructor Delegated To Base Main Constructor
         Ghost(std::string ghost_name);  // Ghost Name Constructor Delegated To Base Main Constructor
 };
 

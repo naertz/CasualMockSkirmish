@@ -39,8 +39,6 @@ std::string get_turn_heading(unsigned int current_team, unsigned int turn) {
  */
 
 void start_skirmish(std::vector<Warrior*> team_red, std::vector<Warrior*> team_blue) {
-    std::cout << "\n";
-
     unsigned int turn = 0;
 
     // Simulation prints current turn until one team has no warriors left.

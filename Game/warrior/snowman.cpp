@@ -9,6 +9,9 @@ std::vector<Attack> snowman_attacks = {
 // ==========================================
 
 // Constructor(s) ========================================================================================
+// Default To Base Main
+Snowman::Snowman() : Warrior("Snowman", "", 30, snowman_attacks, 10) { }
+
 // Snowman Name To Base Main
 Snowman::Snowman(std::string snowman_name) : Warrior("Snowman", snowman_name, 30, snowman_attacks, 10) { }
 // =======================================================================================================

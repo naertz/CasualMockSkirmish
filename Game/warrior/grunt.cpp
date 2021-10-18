@@ -9,6 +9,9 @@ std::vector<Attack> grunt_attacks = {
 // ========================================
 
 // Constructor(s) =============================================================================
+// Default To Base Main
+Grunt::Grunt() : Warrior("Grunt", "", 100, grunt_attacks, 15) { }
+
 // Grunt Name To Base Main
 Grunt::Grunt(std::string grunt_name) : Warrior("Grunt", grunt_name, 100, grunt_attacks, 15) { }
 // ============================================================================================

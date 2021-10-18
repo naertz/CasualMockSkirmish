@@ -9,6 +9,9 @@ std::vector<Attack> sorcerer_attacks = {
 // =============================================
 
 // Constructor(s) ===============================================================================================
+// Default To Base Main
+Sorcerer::Sorcerer() : Warrior("Sorcerer", "", 100, sorcerer_attacks, 25) { }
+
 // Sorcerer Name To Base Main
 Sorcerer::Sorcerer(std::string sorcerer_name) : Warrior("Sorcerer", sorcerer_name, 100, sorcerer_attacks, 25) { }
 // ==============================================================================================================

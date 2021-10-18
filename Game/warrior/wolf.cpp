@@ -9,6 +9,9 @@ std::vector<Attack> wolf_attacks = {
 // ======================================
 
 // Constructor(s) =======================================================================
+// Default To Base Main
+Wolf::Wolf() : Warrior("Wolf", "", 200, wolf_attacks, 15) { }
+
 // Wolf Name To Base Main
-Wolf::Wolf(std::string wolf_name) : Warrior("Wolf", wolf_name, 200, wolf_attacks, 20) { }
+Wolf::Wolf(std::string wolf_name) : Warrior("Wolf", wolf_name, 200, wolf_attacks, 15) { }
 // ======================================================================================

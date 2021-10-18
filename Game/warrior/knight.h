@@ -7,6 +7,7 @@
 
 class Knight : public Warrior {
     public:
+        Knight();                         // Default Constructor Delegated To Base Main Constructor
         Knight(std::string knight_name);  // Knight Name Constructor Delegated To Base Main Constructor
 };
 

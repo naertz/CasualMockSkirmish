@@ -9,6 +9,9 @@ std::vector<Attack> bandit_attacks = {
 // ==========================================
 
 // Constructor(s) ==================================================================================
+// Default To Base Main
+Bandit::Bandit() : Warrior("Bandit", "", 60, bandit_attacks, 15) { }
+
 // Bandit Name To Base Main
-Bandit::Bandit(std::string bandit_name) : Warrior("Bandit", bandit_name, 60, bandit_attacks, 10) { }
+Bandit::Bandit(std::string bandit_name) : Warrior("Bandit", bandit_name, 60, bandit_attacks, 15) { }
 // =================================================================================================

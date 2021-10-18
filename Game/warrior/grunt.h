@@ -7,6 +7,7 @@
 
 class Grunt : public Warrior {
     public:
+        Grunt();                        // Default Constructor Delegated To Base Main Constructor
         Grunt(std::string grunt_name);  // Grunt Name Constructor Delegated To Base Main Constructor
 };
 

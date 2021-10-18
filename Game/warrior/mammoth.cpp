@@ -9,6 +9,9 @@ std::vector<Attack> mammoth_attacks = {
 // ============================================
 
 // Constructor(s) ==========================================================================================
+// Default To Base Main
+Mammoth::Mammoth() : Warrior("Mammoth", "", 1500, mammoth_attacks, 85) { }
+
 // Mammoth Name To Base Main
 Mammoth::Mammoth(std::string mammoth_name) : Warrior("Mammoth", mammoth_name, 1500, mammoth_attacks, 85) { }
 // =========================================================================================================

@@ -7,6 +7,7 @@
 
 class Wolf : public Warrior {
     public:
+        Wolf();                       // Default Constructor Delegated To Base Main Constructor
         Wolf(std::string wolf_name);  // Wolf Name Constructor Delegated To Base Main Constructor
 };
 
