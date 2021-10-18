@@ -45,7 +45,7 @@ void select_scenario(void) {
                   << get_quit_option("5") << "\n\n\n";
 
         // Get user input for option choice.
-        choice = get_option(15);
+        choice = get_option(5);
 
         std::cout << "\n\n";
 
