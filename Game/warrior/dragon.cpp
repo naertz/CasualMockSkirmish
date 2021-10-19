@@ -1,12 +1,12 @@
 #include "dragon.h"
 
-// Attacks ====================================
+// Attacks =====================================
 std::vector<Attack> dragon_attacks = {
     Attack("Fire Breath", 300, 3, LOW_CHANCE),
     Attack("Talon Strike", 250, 1, EVEN_CHANCE),
     Attack("Abduct", 100, 1, PERFECT_CHANCE)
 };
-// ============================================
+// =============================================
 
 // Constructor(s) =====================================================================================
 // Default To Base Main
