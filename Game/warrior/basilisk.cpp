@@ -2,9 +2,9 @@
 
 // Attacks ====================================
 std::vector<Attack> basilisk_attacks = {
-    Attack("Poison Tail", 250, 3, EVEN_CHANCE),
-    Attack("Death Glare", 350, 2, GOOD_CHANCE),
-    Attack("Claw Stab", 100, 1, EVEN_CHANCE)
+    Attack("Poison Tail", 250, 3, LOW_CHANCE),
+    Attack("Death Glare", 350, 2, EVEN_CHANCE),
+    Attack("Claw Stab", 100, 1, PERFECT_CHANCE)
 };
 // ============================================
 
