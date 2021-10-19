@@ -37,15 +37,21 @@ void select_scenario(void) {
     unsigned int choice = 0;
 
     do {
+        std::cout << get_color_string("Select a Scenario for Team ", DARK_WHITE)<< get_color_string("Blue", BLUE)<<get_color_string(": ", DARK_WHITE)<<"\n"<<"\n";
         // Print scenario and quit options.
-        std::cout << get_scenario_option("1", "2 grunts") << "\n"
-                  << get_scenario_option("2", "3 snowmen") << "\n"
-                  << get_scenario_option("3", "2 mammoths") << "\n"
-                  << get_scenario_option("4", "1 basilisk + 1 dragon") << "\n"
-                  << get_quit_option("5") << "\n\n\n";
+        std::cout << get_scenario_option("1", "2 Grunts") << "\n"
+                  << get_scenario_option("2", "3 Snowmen") << "\n"
+                  << get_scenario_option("3", "4 Goblins") << "\n"
+                  << get_scenario_option("4", "2 Knights") << "\n"
+                  << get_scenario_option("5", "1 Ghost + 2 Witches") << "\n"
+                  << get_scenario_option("6", "1 Ogre + 2 Trolls") << "\n"
+                  << get_scenario_option("7", "2 Serpants") << "\n"
+                  << get_scenario_option("8", "2 Mammoths") << "\n"
+                  << get_scenario_option("9", "1 Basilisk + 1 Dragon") << "\n"
+                  << get_quit_option("10") << "\n\n\n";
 
         // Get user input for option choice.
-        choice = get_option(15);
+        choice = get_option(11);
 
         std::cout << "\n\n";
 
@@ -85,7 +91,87 @@ void select_scenario(void) {
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            } case 3: { // 2 mammoths
+            } case 3: { // 4 Goblins
+                // Get team red warriors.
+                team_red = select_warriors(70);
+
+                // Initialize 4 Goblins for team blue.
+                team_blue = {
+                    new Goblin("Gib"),
+                    new Goblin("Gob"),
+                    new Goblin("Glob"),
+                    new Goblin("Gorp")
+                };
+
+                std::cout << "\n";
+
+                // Start skirmish simulation.
+                start_skirmish(team_red, team_blue);
+                break;
+            } case 4: { // 2 Knights
+                // Get team red warriors.
+                team_red = select_warriors(90);
+
+                // Initialize 2 Knights for team blue.
+                team_blue = {
+                    new Knight("Romeo"),
+                    new Knight("Juilius")
+
+                };
+
+                std::cout << "\n";
+
+                // Start skirmish simulation.
+                start_skirmish(team_red, team_blue);
+                break;
+            }case 5: { // 1 Ghost + 2 Witches
+            // Get team red warriors.
+            team_red = select_warriors(100);
+
+            // Initialize 1Gghost and 2 Witches.
+            team_blue = {
+                new Ghost("Googley"),
+                new Witch("Toad Whisperer"),
+                new Witch("Black Cat")
+            };
+
+            std::cout << "\n";
+
+            // Start skirmish simulation.
+            start_skirmish(team_red, team_blue);
+            break;
+            }case 6: { // 1 Ogre + 2 Trolls
+                // Get team red warriors.
+                team_red = select_warriors(170);
+
+                // Initialize 1 Ogre and 2 Trolls.
+                team_blue = {
+                    new Ogre("One Eye"),
+                    new Troll("Stumpy"),
+                    new Troll("Wobbles")
+                };
+
+                std::cout << "\n";
+
+                // Start skirmish simulation.
+                start_skirmish(team_red, team_blue);
+                break;
+            }case 7: { // 2 Serpants
+                // Get team red warriors.
+                team_red = select_warriors(200);
+
+                // Initialize 2 Serpants.
+                team_blue = {
+                    new Serpent("Scaline"),
+                    new Serpent("Sheddar")
+                };
+
+                std::cout << "\n";
+
+                // Start skirmish simulation.
+                start_skirmish(team_red, team_blue);
+                break;
+            }case 8: { // 2 mammoths
                 // Get team red warriors.
                 team_red = select_warriors(200);
 
@@ -100,7 +186,7 @@ void select_scenario(void) {
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            } case 4: { // 1 basilisk + 1 dragon
+            }case 9: { // 1 basilisk + 1 dragon
                 // Get team red warriors.
                 team_red = select_warriors(430);
 
@@ -116,14 +202,14 @@ void select_scenario(void) {
                 start_skirmish(team_red, team_blue);
                 break;
             } default: {
-                // End game.
-                std::cout << get_color_string("Bye", DARK_MAGENTA) << get_color_string(".", DARK_WHITE);
-                break;
+                    // End game.
+                    std::cout << get_color_string("Bye", DARK_MAGENTA) << get_color_string(".", DARK_WHITE);
+                    break;
+                }
             }
-        }
 
         std::cout << "\n";
-    } while (choice < 5);
+    } while (choice < 11);
 }
 
 /**
