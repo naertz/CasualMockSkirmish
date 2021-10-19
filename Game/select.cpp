@@ -37,7 +37,7 @@ void select_scenario(void) {
     unsigned int choice = 0;
 
     do {
-        std::cout << get_color_string("Select a Scenario for Team ", DARK_WHITE)<< get_color_string("Blue", BLUE)<<get_color_string(": ", DARK_WHITE)<<"\n"<<"\n";
+        std::cout << get_color_string("Select a scenario for", DARK_WHITE) << " " << get_color_string("Team Blue", BLUE) << get_color_string(":", DARK_WHITE) << "\n\n";
         // Print scenario and quit options.
         std::cout << get_scenario_option("1", "2 Grunts") << "\n"
                   << get_scenario_option("2", "3 Snowmen") << "\n"
@@ -45,13 +45,13 @@ void select_scenario(void) {
                   << get_scenario_option("4", "2 Knights") << "\n"
                   << get_scenario_option("5", "1 Ghost + 2 Witches") << "\n"
                   << get_scenario_option("6", "1 Ogre + 2 Trolls") << "\n"
-                  << get_scenario_option("7", "2 Serpants") << "\n"
+                  << get_scenario_option("7", "2 Serpents") << "\n"
                   << get_scenario_option("8", "2 Mammoths") << "\n"
                   << get_scenario_option("9", "1 Basilisk + 1 Dragon") << "\n"
                   << get_quit_option("10") << "\n\n\n";
 
         // Get user input for option choice.
-        choice = get_option(11);
+        choice = get_option(10);
 
         std::cout << "\n\n";
 
@@ -60,11 +60,11 @@ void select_scenario(void) {
 
         // Determine option selected.
         switch (choice) {
-            case 1: { // 2 grunts
+            case 1: { // 2 Grunts
                 // Get team red warriors.
                 team_red = select_warriors(40);
 
-                // Initialize 2 grunts for team blue.
+                // Initialize 2 Grunts for team blue.
                 team_blue = {
                     new Grunt("Billy"),
                     new Grunt("Bessie")
@@ -75,11 +75,11 @@ void select_scenario(void) {
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            } case 2: { // 3 snowmen
+            } case 2: { // 3 Snowmen
                 // Get team red warriors.
                 team_red = select_warriors(40);
 
-                // Initialize 3 snowmen for team blue.
+                // Initialize 3 Snowmen for team blue.
                 team_blue = {
                     new Snowman("Hot Head Alan"),
                     new Snowman("Frosty's Cousin Slushie"),
@@ -124,23 +124,23 @@ void select_scenario(void) {
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            }case 5: { // 1 Ghost + 2 Witches
-            // Get team red warriors.
-            team_red = select_warriors(100);
+            } case 5: { // 1 Ghost + 2 Witches
+                // Get team red warriors.
+                team_red = select_warriors(100);
 
-            // Initialize 1Gghost and 2 Witches.
-            team_blue = {
-                new Ghost("Googley"),
-                new Witch("Toad Whisperer"),
-                new Witch("Black Cat")
-            };
+                // Initialize 1 Ghost and 2 Witches.
+                team_blue = {
+                    new Ghost("Googley"),
+                    new Witch("Toad Whisperer"),
+                    new Witch("Black Cat")
+                };
 
-            std::cout << "\n";
+                std::cout << "\n";
 
-            // Start skirmish simulation.
-            start_skirmish(team_red, team_blue);
-            break;
-            }case 6: { // 1 Ogre + 2 Trolls
+                // Start skirmish simulation.
+                start_skirmish(team_red, team_blue);
+                break;
+            } case 6: { // 1 Ogre + 2 Trolls
                 // Get team red warriors.
                 team_red = select_warriors(170);
 
@@ -156,11 +156,11 @@ void select_scenario(void) {
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            }case 7: { // 2 Serpants
+            } case 7: { // 2 Serpents
                 // Get team red warriors.
                 team_red = select_warriors(200);
 
-                // Initialize 2 Serpants.
+                // Initialize 2 Serpents.
                 team_blue = {
                     new Serpent("Scaline"),
                     new Serpent("Sheddar")
@@ -171,11 +171,11 @@ void select_scenario(void) {
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            }case 8: { // 2 mammoths
+            } case 8: { // 2 Mammoths
                 // Get team red warriors.
                 team_red = select_warriors(200);
 
-                // Initialize 3 mammoths for team blue.
+                // Initialize 3 Mammoths for team blue.
                 team_blue = {
                     new Mammoth("Mumak"),
                     new Mammoth("Tumak")
@@ -186,11 +186,11 @@ void select_scenario(void) {
                 // Start skirmish simulation.
                 start_skirmish(team_red, team_blue);
                 break;
-            }case 9: { // 1 basilisk + 1 dragon
+            } case 9: { // 1 Basilisk + 1 Dragon
                 // Get team red warriors.
                 team_red = select_warriors(430);
 
-                // Initialize 1 basilisk and 1 dragon for team blue.
+                // Initialize 1 Basilisk and 1 Dragon for team blue.
                 team_blue = {
                     new Basilisk("Salazar"),
                     new Dragon("Smaug")
@@ -202,14 +202,14 @@ void select_scenario(void) {
                 start_skirmish(team_red, team_blue);
                 break;
             } default: {
-                    // End game.
-                    std::cout << get_color_string("Bye", DARK_MAGENTA) << get_color_string(".", DARK_WHITE);
-                    break;
-                }
+                // End game.
+                std::cout << get_color_string("Bye", DARK_MAGENTA) << get_color_string(".", DARK_WHITE);
+                break;
             }
+        }
 
         std::cout << "\n";
-    } while (choice < 11);
+    } while (choice < 10);
 }
 
 /**
